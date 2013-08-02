@@ -8,13 +8,14 @@ from PIL import Image, ImageOps
 import Levenshtein
 from os import remove
 from os.path import splitext
+from random import random
 from subprocess import check_call
 from scipy.misc import imread, imsave
 from scipy.ndimage.filters import gaussian_filter
 from numpy import linspace
 
 
-def prepare_image(imagepath, sigma):
+def prepare_image(imagepath, sigma, img_scale_factor):
     image = Image.open(imagepath)
     prepared_path = splitext(imagepath)[0] + ".png"
 
@@ -28,7 +29,7 @@ def prepare_image(imagepath, sigma):
     image = image.point(lambda p: p > threshold and 255)
     #resize
     w, h = image.size
-    image = image.resize((w * 2, h * 2), Image.NEAREST)
+    image = image.resize((int(w * img_scale_factor), int(h * img_scale_factor)), Image.NEAREST)
     #########################
     image.save(prepared_path)
     #########################
@@ -51,15 +52,17 @@ def evaluate_image(imagepath, solution):
 
 
 def check_for_best_sigma(imagepath):
-    best_args = [0, 0, ""]  # sigma, goodness, solution
-    for sigma in linspace(-1., 1., 10):
-        print "sig: ", sigma
-        path_to_prepared_test_image = prepare_image(imagepath, sigma)
-        check_call(["tesseract", path_to_prepared_test_image, tmp_outbase_path])
-        goodness = evaluate_image(tmp_outbase_path + ".txt", test_image_solution)
-        print "distance between guess and solution (more = better): ", goodness
-        if goodness > best_args[1]:
-            best_args = sigma, goodness, test_image_solution
+    best_args = [0, 0, 0, ""]  # goodness, solution, sigma, img_scale_factor
+    for img_scale_factor in [1 + (random() * 4) for x in range(25)]:
+        for sigma in linspace(0.8, 1.05, 25):
+            print "sig: ", sigma
+            print "img_scale_factor: ", img_scale_factor
+            path_to_prepared_test_image = prepare_image(imagepath, sigma, img_scale_factor)
+            check_call(["tesseract", path_to_prepared_test_image, tmp_outbase_path])
+            goodness = evaluate_image(tmp_outbase_path + ".txt", test_image_solution)
+            print "distance between guess and solution (more = better): ", goodness
+            if goodness > best_args[0]:
+                best_args = goodness, test_image_solution, sigma, img_scale_factor
     return best_args
 
 print "Start-test suite"
@@ -75,12 +78,12 @@ Tandaho.
 Korenovsk
 """
 
-b_sigma, b_goodness, b_solution = check_for_best_sigma(path_to_test_image)
+b_goodness, b_solution, b_sigma, b_img_scale_factor = check_for_best_sigma(path_to_test_image)
 
-tmp_path = prepare_image(path_to_test_image, b_sigma)
+tmp_path = prepare_image(path_to_test_image, b_sigma, b_img_scale_factor)
 check_call(["tesseract", tmp_path, tmp_outbase_path])
 goodness = evaluate_image(tmp_outbase_path + ".txt", test_image_solution)
-print "Best arguments ({}%): sigma = {} ".format(b_goodness, b_sigma)
+print "Best arguments ({}%): sigma = {} img_scale_factor = {}".format(b_goodness, b_sigma, b_img_scale_factor)
 print "Guess:\n{}".format(b_solution)
 image = Image.open(tmp_path)
 image.show()
