@@ -4,7 +4,7 @@ path_screenshots_pop_a_log = "data/unedited/pop_a_log"
 
 path_to_test_image = "data/unedited/log/HoI3_6.bmp"
 
-from PIL import Image
+from PIL import Image, ImageOps
 from os.path import splitext
 
 
@@ -12,7 +12,12 @@ def prepare_image(imagepath):
     image = Image.open(imagepath)
     cropped_path = splitext(imagepath)[0] + ".png"
 
-    image.crop((866, 914, 866 + 439, 914 + 137)).save(cropped_path)
+    # crop the gamelog out
+    image = image.crop((866, 914, 866 + 439, 914 + 137))
+    # invert colors
+    image = ImageOps.invert(image)
+    image.show()
+    image.save(cropped_path)
 
 
 def ex1(path):
