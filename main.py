@@ -16,8 +16,13 @@ def prepare_image(imagepath):
     image = image.crop((866, 914, 866 + 439, 914 + 137))
     # invert colors
     image = ImageOps.invert(image)
-    image.show()
+    # to black and white
+    image = image.convert("L")  # to black and white
+    threshold = 40
+    image = image.point(lambda p: p > threshold and 255)
+
     image.save(cropped_path)
+    image.show()
 
 
 def ex1(path):
