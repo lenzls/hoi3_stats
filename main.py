@@ -15,6 +15,16 @@ from scipy.ndimage.filters import gaussian_filter
 from numpy import linspace
 
 
+def load_images(basepath):
+    image_sol_list = []  # imagepath, solutionpath
+    for filename in listdir(basepath):
+        if filename.endswith(".bmp"):
+            image_path = join(basepath, filename)
+            solution_path = join(basepath, splitext(image_path)[0] + ".txt")
+            image_sol_list.append((image_path, solution_path))
+    return image_sol_list
+
+
 def prepare_image(imagepath, sigma, img_scale_factor):
     image = Image.open(imagepath)
     prepared_path = splitext(imagepath)[0] + ".png"
@@ -51,11 +61,16 @@ def prepare_image(imagepath, sigma, img_scale_factor):
     return prepared_path
 
 
-def evaluate_image(imagepath, solution):
+def evaluate_image(imagepath, solutionpath):
     tes_output_file = open(imagepath)
     ocr_output = tes_output_file.read()
     tes_output_file.close()
-    #print ocr_output
+
+    solution_file = open(imagepath)
+    solution = solution_file.read()
+    solution_file.close()
+
+    print "evaluating {} with solutions: {}".format(imagepath, solutionpath)
     return Levenshtein.ratio(ocr_output, solution)
 
 
@@ -77,16 +92,6 @@ def check_for_best_sigma(imagepath):
 def check_example_file():
     print "Start-test suite"
     path_to_test_image = "./data/unedited/log/HoI3_6.bmp"
-    test_image_solution = """14:00, 19 October, 1941 133a Divisione 'Littorio' arrived in Balashov
-    16:00, 19 October1 1941 Hostile planes are performing a Ground Attack in
-    Tandaho.
-    316:00, 19 October1 1941 We won the Batle of Korenovsk. We lost 1084 of
-    46967, Soviet Union lost 380 of 8998
-
-    17:00, 19 October1 1941 1a Divisione Alpina 'Taurinese' arrived in
-
-    Korenovsk
-    """
 
     b_goodness, b_solution, b_sigma, b_img_scale_factor = check_for_best_sigma(path_to_test_image)
 
@@ -104,17 +109,16 @@ def guess_all_log():
     sigma = 0.8
     img_scale_factor = 2.779
 
-    for image_name in listdir(path_screenshots_log):
-        if not image_name.endswith(".bmp"):
-            continue
-        image_path = join(path_screenshots_log, image_name)
-        print image_path
+    for image_path, solution_path in load_images(path_screenshots_log):
         tmp_path = prepare_image(image_path, sigma, img_scale_factor)
         check_call(["tesseract", tmp_path, tmp_outbase_path, "quiet"])
+        goodness = evaluate_image(tmp_outbase_path + ".txt", solution_path)
         tes_output_file = open(tmp_outbase_path + ".txt")
         ocr_output = tes_output_file.read()
         tes_output_file.close()
         print "Guess:\n{}".format(ocr_output)
+        print "Accurancy = {}% with arguments: sigma = {} img_scale_factor = {}".format(goodness, sigma, img_scale_factor)
+        print "="*10
 
 
 def cleanup():
