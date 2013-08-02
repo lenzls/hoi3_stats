@@ -24,8 +24,11 @@ def prepare_image(imagepath, sigma):
     image = ImageOps.invert(image)
     # to black and white
     image = image.convert("L")  # to black and white
-    threshold = 40
+    threshold = 41
     image = image.point(lambda p: p > threshold and 255)
+    #resize
+    w, h = image.size
+    image = image.resize((w * 2, h * 2), Image.NEAREST)
     #########################
     image.save(prepared_path)
     #########################
@@ -44,15 +47,20 @@ def evaluate_image(imagepath, solution):
     ocr_output = tes_output_file.read()
     tes_output_file.close()
     #print ocr_output
-    print "distance between guess and solution (fewer = better): ", Levenshtein.ratio(ocr_output, solution)
+    return Levenshtein.ratio(ocr_output, solution)
 
 
 def check_for_best_sigma(imagepath):
-    for sigma in linspace(0., 1., 10):
+    best_args = [0, 0, ""]  # sigma, goodness, solution
+    for sigma in linspace(-1., 1., 10):
         print "sig: ", sigma
         path_to_prepared_test_image = prepare_image(imagepath, sigma)
         check_call(["tesseract", path_to_prepared_test_image, tmp_outbase_path])
-        evaluate_image(tmp_outbase_path + ".txt", test_image_solution)
+        goodness = evaluate_image(tmp_outbase_path + ".txt", test_image_solution)
+        print "distance between guess and solution (more = better): ", goodness
+        if goodness > best_args[1]:
+            best_args = sigma, goodness, test_image_solution
+    return best_args
 
 print "Start-test suite"
 path_to_test_image = "./data/unedited/log/HoI3_6.bmp"
@@ -67,7 +75,16 @@ Tandaho.
 Korenovsk
 """
 
-check_for_best_sigma(path_to_test_image)
+b_sigma, b_goodness, b_solution = check_for_best_sigma(path_to_test_image)
+
+tmp_path = prepare_image(path_to_test_image, b_sigma)
+check_call(["tesseract", tmp_path, tmp_outbase_path])
+goodness = evaluate_image(tmp_outbase_path + ".txt", test_image_solution)
+print "Best arguments ({}%): sigma = {} ".format(b_goodness, b_sigma)
+print "Guess:\n{}".format(b_solution)
+image = Image.open(tmp_path)
+image.show()
+
 
 remove(tmp_outbase_path + ".txt")
 print "End"
