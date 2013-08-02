@@ -3,6 +3,7 @@ path_screenshots_pop = "data/unedited/pop"
 path_screenshots_pop_a_log = "data/unedited/pop_a_log"
 
 from PIL import Image, ImageOps
+import Levenshtein
 from os import remove
 from os.path import splitext
 from subprocess import check_call
@@ -34,25 +35,17 @@ def prepare_image(imagepath):
     image.show()
     return prepared_path
 
-
-def ex1(path):
-    import cv2.cv as cv
-    import tesseract
-
-    image = cv.LoadImage(path, cv.CV_LOAD_IMAGE_GRAYSCALE)
-
-    api = tesseract.TessBaseAPI()
-    api.Init(".", "eng", tesseract.OEM_DEFAULT)
-    #api.SetPageSegMode(tesseract.PSM_SINGLE_WORD)
-    api.SetPageSegMode(tesseract.PSM_AUTO)
-    tesseract.SetCvImage(image, api)
-    text = api.GetUTF8Text()
-    conf = api.MeanTextConf()
-    print "Confidence of following: {}".format(conf)
-    print text
-
 print "Start-test suite"
 path_to_test_image = "./data/unedited/log/HoI3_6.bmp"
+test_image_solution = """14:00, 19 October, 1941 133a Divisione 'Littorio' arrived in Balashov
+16:00, 19 October1 1941 Hostile planes are performing a Ground Attack in
+Tandaho.
+16:00, 19 October1 1941 We won the Batle of Korenovsk. We lost 1084 of
+46967, Soviet Union lost 380 of 8998
+17:00, 19 October1 1941 1a Divisione Alpina 'Taurinese' arrived in
+Korenovsk
+"""
+
 path_to_prepared_test_image = prepare_image(path_to_test_image)
 tmp_outbase_path = "./tmp_tesseract_file"
 print "image to process: ", path_to_prepared_test_image
@@ -62,6 +55,8 @@ check_call(["tesseract", path_to_prepared_test_image, tmp_outbase_path])
 tes_output_file = open(tmp_outbase_path + ".txt")
 ocr_output = tes_output_file.read()
 print ocr_output
+
+print Levenshtein.ratio(ocr_output, test_image_solution)
 
 remove(tmp_outbase_path + ".txt")
 print "End"
