@@ -95,6 +95,8 @@ def guess_all_log():
     img_scale_factor_list = [1 + (random() * 4) for x in range(25)],
     scale_mode_list = [Image.ANTIALIAS, Image.BILINEAR, Image.BICUBIC, Image.NEAREST]
 
+    goodnesses = []
+
     for image_path, solution_path in load_images(path_screenshots_log):
         goodness, guess, sigma, img_scale_factor, scale_mode = determine_best_parameters(image_path, solution_path,
                                                                                          #sigma_list=sigma_list,
@@ -103,15 +105,19 @@ def guess_all_log():
                                                                                          )
 
         path_to_prepared_test_image = prepare_image(image_path, sigma, img_scale_factor, scale_mode)
-        check_call(["tesseract", path_to_prepared_test_image, tmp_guess_path_base, "quiet"])
+        check_call(["tesseract", path_to_prepared_test_image, tmp_guess_path_base, "tesseract_config", "quiet"])
         guess = read_text_file(tmp_guess_path)
         solution = read_text_file(solution_path)
         goodness = evaluate_image(guess, solution)
 
+        goodnesses.append(goodness)
+
         print "File: {}".format(image_path)
         print "Guess:\n{}".format(guess)
-        print "Accurancy = {}%% with arguments: sigma = {} img_scale_factor = {}".format(goodness, sigma, img_scale_factor)
+        print "Accurancy = {}% with arguments: sigma = {} img_scale_factor = {}".format(goodness, sigma, img_scale_factor)
         print "="*10
+
+    print "Average accurancy: {}".format(sum(goodnesses)/len(goodnesses))
 
 
 def cleanup():
