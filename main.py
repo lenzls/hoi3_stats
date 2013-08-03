@@ -78,15 +78,11 @@ def determine_best_parameters(image_path, solution_path, sigma_list=[.8, ], img_
     for img_scale_factor in img_scale_factor_list:
         for sigma in sigma_list:
             for scale_mode in scale_mode_list:
-                print "sig: ", sigma
-                print "img_scale_factor: ", img_scale_factor
-                print "scale_mode: ", scale_mode
                 path_to_prepared_test_image = prepare_image(image_path, sigma, img_scale_factor, scale_mode)
                 check_call(["tesseract", path_to_prepared_test_image, tmp_guess_path_base, "quiet"])
                 guess = read_text_file(tmp_guess_path)
                 solution = read_text_file(solution_path)
                 goodness = evaluate_image(guess, solution)
-                print "distance between guess and solution (more = better): ", goodness
                 if goodness > best_args[0]:
                     best_args = goodness, read_text_file(tmp_guess_path_base + ".txt"), sigma, img_scale_factor, scale_mode
     return best_args
@@ -112,6 +108,7 @@ def guess_all_log():
         solution = read_text_file(solution_path)
         goodness = evaluate_image(guess, solution)
 
+        print "File: {}".format(image_path)
         print "Guess:\n{}".format(guess)
         print "Accurancy = {}%% with arguments: sigma = {} img_scale_factor = {}".format(goodness, sigma, img_scale_factor)
         print "="*10
