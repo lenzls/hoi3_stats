@@ -1,7 +1,7 @@
 0:00, 21 October, 1941 We won the Batle of Debra Tabor. We lost 691 of
 30984, United Kingdom lost 458 of 8919
-1:00, 21 October 1941 Sweden declined a Trade Agreement with German
-2:00, 21 October 1941 Xibei San Ma now has a Trade Agreement with
+1:00, 21 October, 1941 Sweden declined a Trade Agreement with German
+2:00, 21 October, 1941 Xibei San Ma now has a Trade Agreement with
 Japan.
-6:00, 21 October 1941 We won the Batle of Yegorlyskaya. We lost 396 of
+6:00, 21 October, 1941 We won the Batle of Yegorlyskaya. We lost 396 of
 9976, Soviet Union lost 376 of 9000
