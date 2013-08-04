@@ -5,19 +5,30 @@ import lib.pyhk
 class Overlay:
 	def __init__(self, master, hotkey, logger):
 		self.master = master
-		frame = Tk.Frame(master)
-		frame.pack()
+		self.logger = logger
+		self.frame = Tk.Frame(master)
+		self.frame.pack()
 
-		self.screenshot_button = Tk.Button(frame, text="Screenshot (Ctrl + Alt + s)", command=logger.makeScreenshot)
+		self.status_label_text = Tk.StringVar()
+		self.status_label_text.set("status label")
+		self.status_label = Tk.Label(self.frame, textvariable=self.status_label_text)
+		self.status_label.pack(side=Tk.BOTTOM)
+
+		self.screenshot_button = Tk.Button(self.frame, text="Screenshot (Ctrl + Alt + s)", command=logger.makeScreenshot)
 		self.screenshot_button.pack(side=Tk.LEFT)
 
-		self.quit_button = Tk.Button(frame, text="Quit", command=frame.quit)
+		self.quit_button = Tk.Button(self.frame, text="Quit", command=self.frame.quit)
 		self.quit_button.pack(side=Tk.LEFT)
 
 		screenshot_shortcut = hotkey.addHotkey(['Ctrl','Alt','S'], logger.makeScreenshot)
 
+	def update_status_text(self):
+		self.status_label_text.set(self.logger.status_string)
+		self.master.update()
+		self.frame.after(100, self.update_status_text)
 
 	def start(self):
+		self.frame.after(100, self.update_status_text)
 		self.master.mainloop()
 
 def init():

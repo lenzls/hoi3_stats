@@ -6,6 +6,7 @@ from os.path import splitext
 from subprocess import check_call
 from PIL import ImageGrab 
 
+
 class Logger():
 
 	SCREENSHOT_PATH = "data/screenshot.png"
@@ -13,20 +14,25 @@ class Logger():
 	GUESS_PATH = GUESS_PATH_BASE + ".txt"
 
 	def __init__(self):
+		self.status_string = "Status label"  # wird vom overlay auslesen
+
 		root_widget, hotkey = overlay.init()
 		self.window = overlay.Overlay(root_widget, hotkey, self)
 
 	def makeScreenshot(self):
 		statustext = "Generate Screenshot at {}".format(self.SCREENSHOT_PATH)
 		print statustext
-		self.window.set_status_text(statustext)
+		self.status_string = statustext
 
 		ImageGrab.grab().save(self.SCREENSHOT_PATH)
 
 		self.preprocess_image(self.SCREENSHOT_PATH)
 
 	def preprocess_image(self, image_path, sigma=.8, img_scale_factor=2.7, scale_mode=Image.ANTIALIAS):
-		print "Preprocessing"
+		statustext = "Preprocessing"
+		print statustext
+		self.status_string = statustext
+
 		image = Image.open(image_path)
 		prepared_path = splitext(image_path)[0] + "-edited.png"
 
@@ -62,23 +68,35 @@ class Logger():
 		self.ocr(prepared_path)
 
 	def ocr(self, image_path):
-		print "OCR on {} to {}".format(image_path, self.GUESS_PATH_BASE)
+		statustext = "OCR on {} to {}".format(image_path, self.GUESS_PATH_BASE)
+		print statustext
+		self.status_string = statustext
+
 		exe_loc = "C:\\Program Files (x86)\\Tesseract-OCR\\tesseract.exe"
 		check_call([exe_loc, image_path, self.GUESS_PATH_BASE, "quiet"])
 
 		self.postprocess(self.GUESS_PATH)
 
 	def postprocess(self, guess_path):
-		print "Postprocess"
+		statustext = "Postprocessing"
+		print statustext
+		self.status_string = statustext
+
 		guess_text = self.read_text_file(guess_path)
 		self.validation(guess_text)
 
 	def validation(self, postprocessed_text):
-		print "Validation"
+		statustext = "Validation"
+		print statustext
+		self.status_string = statustext
+
 		self.concatenate_logs(postprocessed_text)
 
 	def concatenate_logs(self, validated_text_block):
-		print "Concatenate logs"
+		statustext = "Concatenate logs"
+		print statustext
+		self.status_string = statustext
+
 		print validated_text_block
 
 	def read_text_file(self, filepath):
