@@ -4,8 +4,9 @@ from PIL import ImageGrab
 
 
 class Overlay:
-	def __init__(self, master, hotkey):
+	def __init__(self, master, hotkey, logger):
 		self.master = master
+		self.logger = logger
 		frame = Tk.Frame(master)
 		frame.pack()
 
@@ -22,6 +23,8 @@ class Overlay:
 		screenshot_path = "data/screenshot.png"
 		print "Generate Screenshot at {}".format(screenshot_path)
 		ImageGrab.grab().save(screenshot_path)
+
+		self.logger.preprocess_image(screenshot_path)
 
 	def start(self):
 		self.master.mainloop()
