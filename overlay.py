@@ -34,7 +34,7 @@ class Overlay():
 		self.screenshot_button = Tk.Button(self.frame, text="Screenshot (Ctrl + Alt + s)", command=logger.invoce_logging_action)
 		self.screenshot_button.pack(side=Tk.LEFT)
 
-		self.continue_button = Tk.Button(self.frame, text="Continue", command=self.set_correction_text)
+		self.continue_button = Tk.Button(self.frame, text="Continue", command=self.continue_button_pressed)
 		self.continue_button.pack(side=Tk.LEFT)
 
 		self.quit_button = Tk.Button(self.frame, text="Quit", command=self.frame.quit)
@@ -44,6 +44,8 @@ class Overlay():
 
 		self.req_queue = Queue.Queue()
 		self.res_queue = Queue.Queue()
+
+		self.wait_for_gui_continue_event = threading.Event()
 
 	def request_corrections(self, invalid_textblock):
 		"""the logger requests the user to make corrections to the text"""
@@ -57,6 +59,10 @@ class Overlay():
 	def set_status_text(self, status_string):
 		self.status_label_text.set(status_string)
 		self.root_widget.update()
+
+	def continue_button_pressed(self):
+		self.wait_for_gui_continue_event.set()
+		self.wait_for_gui_continue_event.clear()
 
 	def check_req_queue(self):
 		while not self.req_queue.empty():

@@ -99,10 +99,7 @@ class LogAction(threading.Thread):
 
 			# else: request user intervention 
 			postprocessed_text = self.overlay.request_corrections("This is a dummy text. But correct it!!")
-			print "current thread anzahl {}".format(threading.active_count())
-			print "current thread name {}".format(threading.currentThread())
-			for thread in threading.enumerate():
-				print "thread {} name {}".format(thread, thread.name)
+			self.overlay.wait_for_gui_continue_event.wait()
 			validated = True
 
 		self.concatenate_logs(postprocessed_text)
