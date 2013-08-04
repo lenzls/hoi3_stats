@@ -35,6 +35,11 @@ class Overlay():
 
 		screenshot_shortcut = hotkey.addHotkey(['Ctrl','Alt','S'], logger.makeScreenshot)
 
+	def request_corrections(self, invalid_textblock):
+		"""the logger requests the user to make corrections to the text"""
+		self.set_correction_text(invalid_textblock)
+		
+
 	def set_correction_text(self, multiline_String="test"):
 		self.correction_text.delete(1.0, Tk.END)
 		self.correction_text.insert(1.0, multiline_String)

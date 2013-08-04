@@ -86,6 +86,13 @@ class Logger():
 		print statustext
 		self.overlay.set_status_text(statustext)
 
+		validated = False
+		while not validated:
+			# do tests and set validated to true if all of the work properly
+
+			# else: request user intervention 
+			postprocessed_text = self.overlay.request_corrections("This is a dummy text. But correct it!!")
+
 		self.concatenate_logs(postprocessed_text)
 
 	def concatenate_logs(self, validated_text_block):
