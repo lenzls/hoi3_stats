@@ -18,10 +18,7 @@ class Logger():
 	def makeScreenshot(self):
 		statustext = "Generate Screenshot at {}".format(self.SCREENSHOT_PATH)
 		print statustext
-		self.status_string = statustext
-		print "setting statustext"
 		self.overlay.set_status_text(statustext)
-		print "setted statustext"
 
 		ImageGrab.grab().save(self.SCREENSHOT_PATH)
 
@@ -30,7 +27,7 @@ class Logger():
 	def preprocess_image(self, image_path, sigma=.8, img_scale_factor=2.7, scale_mode=Image.ANTIALIAS):
 		statustext = "Preprocessing"
 		print statustext
-		self.status_string = statustext
+		self.overlay.set_status_text(statustext)
 
 		image = Image.open(image_path)
 		prepared_path = splitext(image_path)[0] + "-edited.png"
@@ -69,7 +66,7 @@ class Logger():
 	def ocr(self, image_path):
 		statustext = "OCR on {} to {}".format(image_path, self.GUESS_PATH_BASE)
 		print statustext
-		self.status_string = statustext
+		self.overlay.set_status_text(statustext)
 
 		exe_loc = "C:\\Program Files (x86)\\Tesseract-OCR\\tesseract.exe"
 		check_call([exe_loc, image_path, self.GUESS_PATH_BASE, "quiet"])
@@ -79,7 +76,7 @@ class Logger():
 	def postprocess(self, guess_path):
 		statustext = "Postprocessing"
 		print statustext
-		self.status_string = statustext
+		self.overlay.set_status_text(statustext)
 
 		guess_text = self.read_text_file(guess_path)
 		self.validation(guess_text)
@@ -87,14 +84,14 @@ class Logger():
 	def validation(self, postprocessed_text):
 		statustext = "Validation"
 		print statustext
-		self.status_string = statustext
+		self.overlay.set_status_text(statustext)
 
 		self.concatenate_logs(postprocessed_text)
 
 	def concatenate_logs(self, validated_text_block):
 		statustext = "Concatenate logs"
 		print statustext
-		self.status_string = statustext
+		self.overlay.set_status_text(statustext)
 
 		print validated_text_block
 
