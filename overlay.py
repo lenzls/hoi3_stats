@@ -1,30 +1,21 @@
 import Tkinter as Tk
 import lib.pyhk
-from PIL import ImageGrab 
 
 
 class Overlay:
 	def __init__(self, master, hotkey, logger):
 		self.master = master
-		self.logger = logger
 		frame = Tk.Frame(master)
 		frame.pack()
 
-		self.screenshot_button = Tk.Button(frame, text="Screenshot (Ctrl + Alt + s)", command=self.makeScreenshot)
+		self.screenshot_button = Tk.Button(frame, text="Screenshot (Ctrl + Alt + s)", command=logger.makeScreenshot)
 		self.screenshot_button.pack(side=Tk.LEFT)
 
 		self.quit_button = Tk.Button(frame, text="Quit", command=frame.quit)
 		self.quit_button.pack(side=Tk.LEFT)
 
+		screenshot_shortcut = hotkey.addHotkey(['Ctrl','Alt','S'], logger.makeScreenshot)
 
-		screenshot_shortcut = hotkey.addHotkey(['Ctrl','Alt','S'], self.makeScreenshot)
-
-	def makeScreenshot(self):
-		screenshot_path = "data/screenshot.png"
-		print "Generate Screenshot at {}".format(screenshot_path)
-		ImageGrab.grab().save(screenshot_path)
-
-		self.logger.preprocess_image(screenshot_path)
 
 	def start(self):
 		self.master.mainloop()
@@ -40,6 +31,6 @@ def init():
 
 if __name__ == '__main__':
 	root_widget, hotkey = init()
-	overlay = Overlay(root_widget, hotkey)
+	overlay = Overlay(root_widget, hotkey, None)
 	overlay.start()
 

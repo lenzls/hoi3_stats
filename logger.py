@@ -4,9 +4,11 @@ from scipy.misc import imread, imsave
 from scipy.ndimage.filters import gaussian_filter
 from os.path import splitext
 from subprocess import check_call
+from PIL import ImageGrab 
 
 class Logger():
 
+	SCREENSHOT_PATH = "data/screenshot.png"
 	GUESS_PATH_BASE = "./tmp_tesseract_file"
 	GUESS_PATH = GUESS_PATH_BASE + ".txt"
 
@@ -14,7 +16,14 @@ class Logger():
 		root_widget, hotkey = overlay.init()
 		self.window = overlay.Overlay(root_widget, hotkey, self)
 
-		
+	def makeScreenshot(self):
+		statustext = "Generate Screenshot at {}".format(self.SCREENSHOT_PATH)
+		print statustext
+		self.window.set_status_text(statustext)
+
+		ImageGrab.grab().save(self.SCREENSHOT_PATH)
+
+		self.preprocess_image(self.SCREENSHOT_PATH)
 
 	def preprocess_image(self, image_path, sigma=.8, img_scale_factor=2.7, scale_mode=Image.ANTIALIAS):
 		print "Preprocessing"
