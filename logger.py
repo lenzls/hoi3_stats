@@ -6,7 +6,6 @@ from os.path import splitext
 from subprocess import check_call
 from PIL import ImageGrab 
 
-
 class Logger():
 
 	SCREENSHOT_PATH = "data/screenshot.png"
@@ -14,15 +13,15 @@ class Logger():
 	GUESS_PATH = GUESS_PATH_BASE + ".txt"
 
 	def __init__(self):
-		self.status_string = "Status label"  # wird vom overlay auslesen
-
-		root_widget, hotkey = overlay.init()
-		self.window = overlay.Overlay(root_widget, hotkey, self)
+		self.overlay = overlay.Overlay(self)
 
 	def makeScreenshot(self):
 		statustext = "Generate Screenshot at {}".format(self.SCREENSHOT_PATH)
 		print statustext
 		self.status_string = statustext
+		print "setting statustext"
+		self.overlay.set_status_text(statustext)
+		print "setted statustext"
 
 		ImageGrab.grab().save(self.SCREENSHOT_PATH)
 
@@ -106,7 +105,9 @@ class Logger():
 	    return content
 
 	def start(self):
-		self.window.start()
+		print "starting logger"
+		self.overlay.start()
+		print "started logger"
 
 if __name__ == '__main__':
 	logger = Logger()

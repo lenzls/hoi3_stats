@@ -1,12 +1,18 @@
 import Tkinter as Tk
 import lib.pyhk
+import Queue
 
+class Overlay():
+	def __init__(self, logger):
 
-class Overlay:
-	def __init__(self, master, hotkey, logger):
-		self.master = master
+		hotkey = lib.pyhk.pyhk()
+		self.root_widget = Tk.Tk()
+		self.root_widget.attributes("-topmost", 1)
+		self.root_widget.title("HoI3_statistics overlay")
+		self.root_widget.iconbitmap(default='icon.ico')
+
 		self.logger = logger
-		self.frame = Tk.Frame(master)
+		self.frame = Tk.Frame(self.root_widget)
 		self.frame.pack()
 
 		self.status_label_text = Tk.StringVar()
@@ -22,26 +28,16 @@ class Overlay:
 
 		screenshot_shortcut = hotkey.addHotkey(['Ctrl','Alt','S'], logger.makeScreenshot)
 
-	def update_status_text(self):
-		self.status_label_text.set(self.logger.status_string)
-		self.master.update()
-		self.frame.after(100, self.update_status_text)
+	def set_status_text(self, status_string):
+		print "setting overlay label"
+		self.status_label_text.set(status_string)
+		self.root_widget.update()
+		print "setted overlay label"
 
 	def start(self):
-		self.frame.after(100, self.update_status_text)
-		self.master.mainloop()
-
-def init():
-	hotkey = lib.pyhk.pyhk()
-
-	root_widget = Tk.Tk()
-	root_widget.attributes("-topmost", 1)
-	root_widget.title("HoI3_statistics overlay")
-	root_widget.iconbitmap(default='icon.ico')
-	return root_widget, hotkey
+		self.root_widget.mainloop()
 
 if __name__ == '__main__':
-	root_widget, hotkey = init()
-	overlay = Overlay(root_widget, hotkey, None)
+	overlay = Overlay(None)
 	overlay.start()
 
