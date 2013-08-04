@@ -17,6 +17,7 @@ class Logger():
 		
 
 	def preprocess_image(self, image_path, sigma=.8, img_scale_factor=2.7, scale_mode=Image.ANTIALIAS):
+		print "Preprocessing"
 		image = Image.open(image_path)
 		prepared_path = splitext(image_path)[0] + "-edited.png"
 
@@ -48,13 +49,28 @@ class Logger():
 
 		#image = Image.open(prepared_path)
 		#image.show()
+
 		self.ocr(prepared_path)
 
 	def ocr(self, image_path):
 		print "OCR on {} to {}".format(image_path, self.GUESS_PATH_BASE)
 		exe_loc = "C:\\Program Files (x86)\\Tesseract-OCR\\tesseract.exe"
 		check_call([exe_loc, image_path, self.GUESS_PATH_BASE, "quiet"])
-		print self.read_text_file(self.GUESS_PATH)
+
+		self.postprocess(self.GUESS_PATH)
+
+	def postprocess(self, guess_path):
+		print "Postprocess"
+		guess_text = self.read_text_file(guess_path)
+		self.validation(guess_text)
+
+	def validation(self, postprocessed_text):
+		print "Validation"
+		self.concatenate_logs(postprocessed_text)
+
+	def concatenate_logs(self, validated_text_block):
+		print "Concatenate logs"
+		print validated_text_block
 
 	def read_text_file(self, filepath):
 	    opened = open(filepath)
