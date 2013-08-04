@@ -9,6 +9,7 @@ class NonRecognizedRequestTypeException(Exception):
 class Overlay():
 
 	REQUEST_STATUS_UPDATE = 1
+	REQUEST_CORRECTION = 2
 
 	def __init__(self, logger):
 
@@ -47,14 +48,10 @@ class Overlay():
 
 		self.wait_for_gui_continue_event = threading.Event()
 
-	def request_corrections(self, invalid_textblock):
-		"""the logger requests the user to make corrections to the text"""
-		self.set_correction_text(invalid_textblock)
-		self.root_widget.update()
-
-	def set_correction_text(self, multiline_String="test"):
+	def set_correction_text(self, multiline_String):
 		self.correction_text.delete(1.0, Tk.END)
 		self.correction_text.insert(1.0, multiline_String)
+		self.root_widget.update()
 		
 	def set_status_text(self, status_string):
 		self.status_label_text.set(status_string)
@@ -69,6 +66,8 @@ class Overlay():
 			request_code, request_msg = self.req_queue.get()
 			if request_code == Overlay.REQUEST_STATUS_UPDATE:
 				self.set_status_text(request_msg)
+			elif request_code == Overlay.REQUEST_CORRECTION:
+				self.set_correction_text(request_msg)
 			else:
 				raise NonRecognizedRequestTypeException("The request code {} is not known.".format(request_code))
 		self.root_widget.after(100, self.check_req_queue)

@@ -98,7 +98,7 @@ class LogAction(threading.Thread):
 			# do tests and set validated to true if all of the work properly
 
 			# else: request user intervention 
-			postprocessed_text = self.overlay.request_corrections("This is a dummy text. But correct it!!")
+			postprocessed_text = self.overlay.req_queue.put((overlay.Overlay.REQUEST_CORRECTION, "This is a dummy text. But correct it!!"))
 			self.overlay.wait_for_gui_continue_event.wait()
 			validated = True
 
