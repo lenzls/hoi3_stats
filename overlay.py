@@ -41,6 +41,8 @@ class Overlay():
 		self.quit_button = Tk.Button(self.frame, text="Quit", command=self.frame.quit)
 		self.quit_button.pack(side=Tk.LEFT)
 
+		self.unlock_buttons_except_continue()
+
 		#screenshot_shortcut = hotkey.addHotkey(['Ctrl','Alt','S'], logger.invoce_logging_action)
 
 		self.req_queue = Queue.Queue()
@@ -52,12 +54,16 @@ class Overlay():
 		self.correction_text.delete(1.0, Tk.END)
 		self.correction_text.insert(1.0, multiline_String)
 		self.root_widget.update()
+
+	def get_correction_text(self):
+		return self.correction_text.get(1.0, Tk.END)
 		
 	def set_status_text(self, status_string):
 		self.status_label_text.set(status_string)
 		self.root_widget.update()
 
 	def continue_button_pressed(self):
+		self.unlock_buttons_except_continue()
 		self.wait_for_gui_continue_event.set()
 		self.wait_for_gui_continue_event.clear()
 
@@ -68,9 +74,20 @@ class Overlay():
 				self.set_status_text(request_msg)
 			elif request_code == Overlay.REQUEST_CORRECTION:
 				self.set_correction_text(request_msg)
+				self.lock_buttons_except_continue()
 			else:
 				raise NonRecognizedRequestTypeException("The request code {} is not known.".format(request_code))
 		self.root_widget.after(100, self.check_req_queue)
+
+	def lock_buttons_except_continue(self):
+		self.screenshot_button.config(state=Tk.DISABLED)
+		self.quit_button.config(state=Tk.DISABLED)
+		self.continue_button.config(state=Tk.NORMAL)
+
+	def unlock_buttons_except_continue(self):
+		self.screenshot_button.config(state=Tk.NORMAL)
+		self.quit_button.config(state=Tk.NORMAL)
+		self.continue_button.config(state=Tk.DISABLED)
 
 	def start(self):
 		self.root_widget.after(100, self.check_req_queue)
