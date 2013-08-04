@@ -1,5 +1,4 @@
 import Tkinter as Tk
-import lib.pyhk
 import Queue
 import threading
 
@@ -13,11 +12,11 @@ class Overlay():
 
 	def __init__(self, logger):
 
-		#hotkey = lib.pyhk.pyhk()
 		self.root_widget = Tk.Tk()
 		self.root_widget.attributes("-topmost", 1)
 		self.root_widget.title("HoI3_statistics overlay")
 		self.root_widget.iconbitmap(default='icon.ico')
+		self.root_widget.wm_protocol("WM_DELETE_WINDOW", logger.stop)
 
 		self.logger = logger
 		self.frame = Tk.Frame(self.root_widget)
@@ -38,17 +37,17 @@ class Overlay():
 		self.continue_button = Tk.Button(self.frame, text="Continue", command=self.continue_button_pressed)
 		self.continue_button.pack(side=Tk.LEFT)
 
-		self.quit_button = Tk.Button(self.frame, text="Quit", command=self.frame.quit)
+		self.quit_button = Tk.Button(self.frame, text="Quit", command=self.logger.stop)
 		self.quit_button.pack(side=Tk.LEFT)
 
 		self.unlock_buttons_except_continue()
-
-		#screenshot_shortcut = hotkey.addHotkey(['Ctrl','Alt','S'], logger.invoce_logging_action)
 
 		self.req_queue = Queue.Queue()
 		self.res_queue = Queue.Queue()
 
 		self.wait_for_gui_continue_event = threading.Event()
+
+		self.root_widget.after(100, self.check_req_queue)
 
 	def set_correction_text(self, multiline_String):
 		self.correction_text.delete(1.0, Tk.END)
@@ -88,10 +87,6 @@ class Overlay():
 		self.screenshot_button.config(state=Tk.NORMAL)
 		self.quit_button.config(state=Tk.NORMAL)
 		self.continue_button.config(state=Tk.DISABLED)
-
-	def start(self):
-		self.root_widget.after(100, self.check_req_queue)
-		self.root_widget.mainloop()
 
 if __name__ == '__main__':
 	overlay = Overlay(None)
