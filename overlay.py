@@ -13,7 +13,9 @@ class Overlay():
 	def __init__(self, logger):
 
 		self.root_widget = Tk.Tk()
-		self.root_widget.attributes("-topmost", 1)
+		#self.root_widget.attributes("-topmost", 1)
+		self.root_widget.geometry("1680x90+0+960")
+		self.root_widget.overrideredirect(True)
 		self.root_widget.title("HoI3_statistics overlay")
 		self.root_widget.iconbitmap(default='icon.ico')
 		self.root_widget.wm_protocol("WM_DELETE_WINDOW", logger.stop)
@@ -25,11 +27,13 @@ class Overlay():
 		self.status_label_text = Tk.StringVar()
 		self.status_label_text.set("status label")
 		self.status_label = Tk.Label(self.frame, textvariable=self.status_label_text)
-		self.status_label.pack(side=Tk.BOTTOM)
+		self.status_label.pack(side=Tk.LEFT)
+		self.status_label.config(width=100, height=5)
 
 		self.correction_text = Tk.Text(self.frame)
-		self.correction_text.pack(side=Tk.BOTTOM)
+		self.correction_text.pack(side=Tk.LEFT)
 		self.correction_text.insert(1.0, "This is the correction text field")
+		self.correction_text.config(width=100, height=5)
 
 		self.screenshot_button = Tk.Button(self.frame, text="Screenshot (Ctrl + Alt + s)", command=logger.invoce_logging_action)
 		self.screenshot_button.pack(side=Tk.LEFT)
@@ -38,7 +42,8 @@ class Overlay():
 		self.continue_button.pack(side=Tk.LEFT)
 
 		self.quit_button = Tk.Button(self.frame, text="Quit", command=self.logger.stop)
-		self.quit_button.pack(side=Tk.LEFT)
+		self.quit_button.pack(side=Tk.RIGHT)
+		self.quit_button.config(width=20, height=5)
 
 		self.unlock_buttons_except_continue()
 
