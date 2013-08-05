@@ -12,6 +12,8 @@ class LogAction(threading.Thread):
 	SCREENSHOT_PATH = "data/screenshot.png"
 	GUESS_PATH_BASE = "./tmp_tesseract_file"
 	GUESS_PATH = GUESS_PATH_BASE + ".txt"
+	LOG_POSITION = (861, 815)  # position of the game log in absolute screen coordinates
+	LOG_DIMENSIONS = (437, 139)  # dimensions of the game log
 
 	def __init__(self, overlay, **kwargs):
 		threading.Thread.__init__(self, **kwargs)
@@ -40,7 +42,12 @@ class LogAction(threading.Thread):
 		prepared_path = splitext(image_path)[0] + "-edited.png"
 
 		# crop the gamelog out
-		image = image.crop((866, 914, 866 + 439, 914 + 137))
+		x1 = self.LOG_POSITION[0]
+		y1 = self.LOG_POSITION[1]
+		x2 = self.LOG_POSITION[0] + self.LOG_DIMENSIONS[0]
+		y2 = self.LOG_POSITION[1] + self.LOG_DIMENSIONS[1]
+		image = image.crop((x1, y1, x2, y2))
+
 		# invert colors
 		image = ImageOps.invert(image)
 		# to black and white
