@@ -23,7 +23,7 @@ class HotkeyManager():
 		#    print 'WindowName:',event.WindowName
 		#    print 'Ascii:', event.Ascii, chr(event.Ascii)
 		#    print 'Key:', event.Key
-		#    print 'KeyID:', event.KeyID
+		#print 'KeyID:', event.KeyID
 		#    print 'ScanCode:', event.ScanCode
 		#    print 'Extended:', event.Extended
 		#    print 'Injected:', event.Injected
@@ -31,16 +31,21 @@ class HotkeyManager():
 		#    print 'Transition', event.Transition
 
 		# ctrl + c
-	    if event.Ascii == 3:
+		if event.Ascii == 3:
 			print "yeag... quit.."
-			self.app.stop()
+			#self.app.stop()
 
-	    # alt + s
-	    if event.Alt == 32 and event.KeyID == 83:
-	        print 'HERE WILL BE THE CODE'
+		# F9
+		if event.KeyID == 120:
+			print 'F9'
+			self.app.invoce_logging_action()
 
-	    # return True to pass the event to other handlers
-	    return True
+		# alt + F8
+		if event.Alt == 32 and event.KeyID == 119:
+			print 'alt+f8'
+
+		# return True to pass the event to other handlers
+		return True
 
 
 class StatLogger():

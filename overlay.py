@@ -35,7 +35,7 @@ class Overlay():
 		self.correction_text.grid(row=0, column=1, rowspan=2)
 		self.correction_text.config(width=100, height=5)
 
-		self.screenshot_button = Tk.Button(self.frame, text="Screenshot (Ctrl + Alt + s)", command=logger.invoce_logging_action)
+		self.screenshot_button = Tk.Button(self.frame, text="Screenshot (F9)", command=logger.invoce_logging_action)
 		self.screenshot_button.grid(row=0, column=3, columnspan=2)
 
 		self.continue_button = Tk.Button(self.frame, text="Continue", command=self.continue_button_pressed)
