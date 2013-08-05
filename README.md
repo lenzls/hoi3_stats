@@ -11,3 +11,6 @@ Python-libs
 - pyhk (included)
 - scipy
 - PIL
+
+##ToDo:
+- prevent from quitting if the logger is waiting for the GUI. results in unwanted crash
