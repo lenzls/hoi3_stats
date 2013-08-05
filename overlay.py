@@ -14,7 +14,7 @@ class Overlay():
 
 		self.root_widget = Tk.Tk()
 		#self.root_widget.attributes("-topmost", 1)
-		self.root_widget.geometry("1680x90+0+960")
+		self.root_widget.geometry("1680x89+0+961")
 		self.root_widget.overrideredirect(True)
 		self.root_widget.title("HoI3_statistics overlay")
 		self.root_widget.iconbitmap(default='icon.ico')
