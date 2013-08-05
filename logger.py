@@ -100,7 +100,17 @@ class LogAction(threading.Thread):
 		print statustext
 		self.overlay.req_queue.put((overlay.Overlay.REQUEST_STATUS_UPDATE, statustext))
 
-		validated = False
+		def split_text_in_message_lines(multiline_text):
+			text = multiline_text
+			# split on new line
+			lines = text.split("\n")
+			# remove empty lines
+			print lines
+			lines = [line for line in lines if not line == ""]
+			print lines
+
+		split_text_in_message_lines(postprocessed_text)
+		validated = True
 		while not validated:
 			# do tests and set validated to true if all of the work properly
 
