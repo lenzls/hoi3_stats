@@ -6,7 +6,7 @@ PATROLTRACK_3;$OUR_FLEET$;$OUR_FLEET$;$OUR_FLEET$;;$OUR_FLEET$;;;;;;;;;x,,,,,,;
 PATROLTRACK_4;has found another fleet in;a trouvé une autre flotte dans la province;fand eine andere Flotte in;;ha encontrado a otra flota en;;;;;;;;;x,,,,,,;
 PATROLTRACK_5;$PROV$;$PROV$;$PROV$;;$PROV$;;;;;;;;;x,,,,,,;
 PATROLTRACK_6;This fleet belongs to $OTHER$.;Cette flotte appartient à $OTHER$.;Diese Flotte ist aus $OTHER$.;;Esta flota pertenece a $OTHER$.;;;;;;;;;x,,,,,,;
-PATROLTRACK_LOG;$OUR_FLEET$ found $OTHERS$ fleet in $PROV$.;$OUR_FLEET$ a trouvé une flotte $OTHERS$ dans la province $PROV$.;$OUR_FLEET$ fand eine $OTHERS$ Flotte in $PROV$.;;$OUR_FLEET$ encontró la flota de $OTHERS$ en $PROV$.;;;;;;;;;x,,,,,,;
+PATROLTRACK_LOG;PATROLTRACK_LOG > OUR_FLEET=$OUR_FLEET$ + PROV=$PROV$ + OTHER=$OTHER$ + OTHERS=$OTHERS$ + RESERVE=$RESERVE$ + TARGET=$TARGET$ + CAP=$CAP$ + SUB=$SUB$ + NUM=$NUM$ + COUNTRY=$COUNTRY$ + TYPE=$TYPE$ + NAME=$NAME$ + SCR=$SCR$ + TRA=$TRA$ + BRIG=$BRIG$ + UNIT=$UNIT$ + MEN=$MEN$ + FIG=$FIG$ + BOM=$BOM$ + DEFENDER=$DEFENDER$ + ATTACKER=$ATTACKER$ + ATTUNIT=$ATTUNIT$ + DEFUNIT=$DEFUNIT$ + RESULT=$RESULT$ + USLOSS=$USLOSS$ + USNUM=$USNUM$ + OTHERRESULT=$OTHERRESULT$ + THEIRNUM=$THEIRNUM$ + THEIRLOST=$THEIRLOST$ + SHIPS=$SHIPS$ + THEIRSHIP=$THEIRSHIP$ + ORDER=$ORDER$ + DAMAGE=$DAMAGE$ + ATTACKER_ADJ=$ATTACKER_ADJ$ + DAMAGE_SHORT=$DAMAGE_SHORT$ + SIZE=$SIZE$ + SUNK=$SUNK$;$OUR_FLEET$ a trouvé une flotte $OTHERS$ dans la province $PROV$.;$OUR_FLEET$ fand eine $OTHERS$ Flotte in $PROV$.;;$OUR_FLEET$ encontró la flota de $OTHERS$ en $PROV$.;;;;;;;;;x,,,,,,;
 PATROLTRACK_BTN1;OK;OK;OK;OK;OK;OK;Rendben;OK;;;;;;x,,,,,,;
 PATROLTRACK_BTN2;OK;OK;OK;OK;OK;OK;Rendben;OK;;;;;;x,,,,,,;
 PATROLTRACK_BTN3;Goto;Aller à;Gehe zu;IdŸ do;Ir allí;Andare;Ugrás;Pøejít na;;;;;;x,,,,,,;
@@ -19,7 +19,7 @@ REINFORCE_3;$RESERVE$;$RESERVE$;$RESERVE$;;$RESERVE$;;;;;;;;;x,,,,,,;
 REINFORCE_4;has dispatched a fleet to;a envoyé une flotte vers;schickte eine Flotte nach;;ha enviado una flota a;;;;;;;;;x,,,,,,;
 REINFORCE_5;$TARGET$;$TARGET$;$TARGET$;;$TARGET$;;;;;;;;;x,,,,,,;
 REINFORCE_6;$RESERVE$ now has $CAP$ capital ships, $SUB$ Submarines and $OTHER$ other shiptypes left.;$RESERVE$ dispose maintenant de $CAP$ navires capitaux, de $SUB$ sous-marins et de $OTHER$ navires d'autres types.;$RESERVE$ hat nun $CAP$ Großkampfschiffe, $SUB$ U-Boote und $OTHER$ andere Schiffstypen übrig.;;A $RESERVE$ le quedan ahora $CAP$ grandes unidades, $SUB$ submarinos y $OTHER$ de otros tipos de barcos.;;;;;;;;;x,,,,,;
-REINFORCE_LOG;$RESERVE$ dispatched a fleet to $TARGET$.;$RESERVE$ a envoyé une flotte vers $TARGET$.;$RESERVE$ schickte eine Flotte nach $TARGET$.;;$RESERVE$ envió una flota a $TARGET$.;;;;;;;;;x,,,,,,;
+REINFORCE_LOG;REINFORCE_LOG > OUR_FLEET=$OUR_FLEET$ + PROV=$PROV$ + OTHER=$OTHER$ + OTHERS=$OTHERS$ + RESERVE=$RESERVE$ + TARGET=$TARGET$ + CAP=$CAP$ + SUB=$SUB$ + NUM=$NUM$ + COUNTRY=$COUNTRY$ + TYPE=$TYPE$ + NAME=$NAME$ + SCR=$SCR$ + TRA=$TRA$ + BRIG=$BRIG$ + UNIT=$UNIT$ + MEN=$MEN$ + FIG=$FIG$ + BOM=$BOM$ + DEFENDER=$DEFENDER$ + ATTACKER=$ATTACKER$ + ATTUNIT=$ATTUNIT$ + DEFUNIT=$DEFUNIT$ + RESULT=$RESULT$ + USLOSS=$USLOSS$ + USNUM=$USNUM$ + OTHERRESULT=$OTHERRESULT$ + THEIRNUM=$THEIRNUM$ + THEIRLOST=$THEIRLOST$ + SHIPS=$SHIPS$ + THEIRSHIP=$THEIRSHIP$ + ORDER=$ORDER$ + DAMAGE=$DAMAGE$ + ATTACKER_ADJ=$ATTACKER_ADJ$ + DAMAGE_SHORT=$DAMAGE_SHORT$ + SIZE=$SIZE$ + SUNK=$SUNK$;$RESERVE$ a envoyé une flotte vers $TARGET$.;$RESERVE$ schickte eine Flotte nach $TARGET$.;;$RESERVE$ envió una flota a $TARGET$.;;;;;;;;;x,,,,,,;
 REINFORCE_BTN1;OK;OK;OK;OK;OK;OK;Rendben;OK;;;;;;x,,,,,,;
 REINFORCE_BTN2;OK;OK;OK;OK;OK;OK;Rendben;OK;;;;;;x,,,,,,;
 REINFORCE_BTN3;Goto;Aller à;Gehe zu;IdŸ do;Ir allí;Andare;Ugrás;Pøejít na;;;;;;x,,,,,,;
@@ -32,7 +32,7 @@ REINFORCEAIR_3;$RESERVE$;$RESERVE$;$RESERVE$;;$RESERVE$;;;;;;;;;x,,,,,,;
 REINFORCEAIR_4;has dispatched an air unit to;a envoyé une unité aérienne vers;schickte eine Lufteinheit nach;;ha enviado una unidad aérea a;;;;;;;;;x,,,,,,;
 REINFORCEAIR_5;$TARGET$;$TARGET$.;$TARGET$;;$TARGET$;;;;;;;;;x;,,,,,,
 REINFORCEAIR_6;$RESERVE$ now has $NUM$ units left.;$RESERVE$ dispose maintenant de $NUM$ unités.;$RESERVE$ hat nun $NUM$ Einheiten übrig.;;A $RESERVE$ le quedan ahora $NUM$ unidades.;;;;;;;;;x;,,,,,,
-REINFORCEAIR_LOG;$RESERVE$ dispatched a fleet to $TARGET$.;$RESERVE$ a envoyé une flotte vers $TARGET$.;$RESERVE$ schickte eine Flotte nach $TARGET$.;;$RESERVE$ envió una flota a $TARGET$.;;;;;;;;;x;,,,,,,
+REINFORCEAIR_LOG;REINFORCEAIR_LOG > OUR_FLEET=$OUR_FLEET$ + PROV=$PROV$ + OTHER=$OTHER$ + OTHERS=$OTHERS$ + RESERVE=$RESERVE$ + TARGET=$TARGET$ + CAP=$CAP$ + SUB=$SUB$ + NUM=$NUM$ + COUNTRY=$COUNTRY$ + TYPE=$TYPE$ + NAME=$NAME$ + SCR=$SCR$ + TRA=$TRA$ + BRIG=$BRIG$ + UNIT=$UNIT$ + MEN=$MEN$ + FIG=$FIG$ + BOM=$BOM$ + DEFENDER=$DEFENDER$ + ATTACKER=$ATTACKER$ + ATTUNIT=$ATTUNIT$ + DEFUNIT=$DEFUNIT$ + RESULT=$RESULT$ + USLOSS=$USLOSS$ + USNUM=$USNUM$ + OTHERRESULT=$OTHERRESULT$ + THEIRNUM=$THEIRNUM$ + THEIRLOST=$THEIRLOST$ + SHIPS=$SHIPS$ + THEIRSHIP=$THEIRSHIP$ + ORDER=$ORDER$ + DAMAGE=$DAMAGE$ + ATTACKER_ADJ=$ATTACKER_ADJ$ + DAMAGE_SHORT=$DAMAGE_SHORT$ + SIZE=$SIZE$ + SUNK=$SUNK$;$RESERVE$ a envoyé une flotte vers $TARGET$.;$RESERVE$ schickte eine Flotte nach $TARGET$.;;$RESERVE$ envió una flota a $TARGET$.;;;;;;;;;x;,,,,,,
 REINFORCEAIR_BTN1;OK;OK;OK;OK;OK;OK;Rendben;OK;;;;;;x;,,,,,,
 REINFORCEAIR_BTN2;OK;OK;OK;OK;OK;OK;Rendben;OK;;;;;;x;,,,,,,
 REINFORCEAIR_BTN3;Goto;Aller à;Gehe zu;IdŸ do;Ir allí;Andare;Ugrás;Pøejít na;;;;;;x;,,,,,,
@@ -45,7 +45,7 @@ PROVINCELOST_3;$PROV$;$PROV$;$PROV$;$PROV$;$PROV$;$PROV$;$PROV$;$PROV$;;;;;;x;,,
 PROVINCELOST_4;to the despicable;qui est passée aux mains de;an ;na rzecz nikczemnego pañstwa;ante;con la spregevole nazione di;tartományt, mely most;a získala ji mrzká zemì;;;;;;x;,,,,,
 PROVINCELOST_5;$COUNTRY$;$COUNTRY$;$COUNTRY$;$COUNTRY$;$COUNTRY$;$COUNTRY$;$COUNTRY$ kezére került.;$COUNTRY$;;;;;;x;,,,,,,
 PROVINCELOST_6;We must reacquire it!;Nous devons la reconquérir !;Wir müssen sie zurückerobern!;Musimy j¹ odzyskaæ!;¡Debemos recuperarla!;Dobbiamo riconquistarla!;Vissza kell szereznünk!;Musíme ji získat zpátky!;;;;;;x;,,,,,,
-PROVINCELOST_LOG;We lost $PROV$ to $COUNTRY$.;Nous avons perdu la province $PROV$ au bénéfice du pays $COUNTRY$.;Wir haben $PROV$ an $COUNTRY$ verloren.;Straciliœmy prowincjê $PROV$ na rzecz $COUNTRY$.;Perdimos $PROV$ ante $COUNTRY$.;Abbiamo perso $PROV$ con $COUNTRY$.;$COUNTRY$ kezére került $PROV$ tartományunk.;Ztratili jsme provincii $PROV$ ve prospìch zemì $COUNTRY$.;;;;;;x;,,,,,,
+PROVINCELOST_LOG;PROVINCELOST_LOG > OUR_FLEET=$OUR_FLEET$ + PROV=$PROV$ + OTHER=$OTHER$ + OTHERS=$OTHERS$ + RESERVE=$RESERVE$ + TARGET=$TARGET$ + CAP=$CAP$ + SUB=$SUB$ + NUM=$NUM$ + COUNTRY=$COUNTRY$ + TYPE=$TYPE$ + NAME=$NAME$ + SCR=$SCR$ + TRA=$TRA$ + BRIG=$BRIG$ + UNIT=$UNIT$ + MEN=$MEN$ + FIG=$FIG$ + BOM=$BOM$ + DEFENDER=$DEFENDER$ + ATTACKER=$ATTACKER$ + ATTUNIT=$ATTUNIT$ + DEFUNIT=$DEFUNIT$ + RESULT=$RESULT$ + USLOSS=$USLOSS$ + USNUM=$USNUM$ + OTHERRESULT=$OTHERRESULT$ + THEIRNUM=$THEIRNUM$ + THEIRLOST=$THEIRLOST$ + SHIPS=$SHIPS$ + THEIRSHIP=$THEIRSHIP$ + ORDER=$ORDER$ + DAMAGE=$DAMAGE$ + ATTACKER_ADJ=$ATTACKER_ADJ$ + DAMAGE_SHORT=$DAMAGE_SHORT$ + SIZE=$SIZE$ + SUNK=$SUNK$;Nous avons perdu la province $PROV$ au bénéfice du pays $COUNTRY$.;Wir haben $PROV$ an $COUNTRY$ verloren.;Straciliœmy prowincjê $PROV$ na rzecz $COUNTRY$.;Perdimos $PROV$ ante $COUNTRY$.;Abbiamo perso $PROV$ con $COUNTRY$.;$COUNTRY$ kezére került $PROV$ tartományunk.;Ztratili jsme provincii $PROV$ ve prospìch zemì $COUNTRY$.;;;;;;x;,,,,,,
 PROVINCELOST_BTN1;Ok;Ok;Ok;OK;Aceptar;Ok;Ok;Ok;;;;;;x,,,,,,;
 PROVINCELOST_BTN2;Ok;Ok;Ok;OK;Aceptar;Ok;Ok;Ok;;;;;;x,,,,,,;
 PROVINCELOST_BTN3;Goto;Aller à;Gehe zu;IdŸ do;Ir allí;Andare;Menj ide!;Pøejít na;;;;;;x,,,,,,;
@@ -58,7 +58,7 @@ UNITARRIVED_3;$NAME$;$NAME$;$NAME$;$NAME$;$NAME$;$NAME$;$NAME$;$NAME$;;;;;;x,,,,
 UNITARRIVED_4;has safely arrived in;est arrivé sans encombre dans la province;ist sicher in;przybywa (-j¹) bezpiecznie do;ha llegado a salvo a;è arrivato in sicurezza a;sikeresen megérkezett;bezpeènì dorazila do;;;;;;x,,,,,,;
 UNITARRIVED_5;$PROV$;$PROV$.;$PROV$ angekommen.;prowincji $PROV$;$PROV$;$PROV$;$PROV provinciára.;$PROV$;;;;;;x,,,,,,;
 UNITARRIVED_6;They are awaiting futher orders;Ils y attendent de nouveaux ordres.;Sie warten auf weitere Befehle.;Oczekuj¹ na dalsze rozkazy;Están esperando órdenes adicionales;Attende ulteriori ordini;További parancsainkra várnak.;Oèekává další rozkazy.;;;;;;x,,,,,,;
-UNITARRIVED_LOG;$NAME$ arrived in $PROV$;$NAME$ est arrivé dans la province $PROV$;$NAME$ ist in $PROV$ angekommen;$NAME$ przyby³ do prowincji $PROV$;$NAME$ llegó a $PROV$;;$NAME$ è arrivato in $PROV$è arrivato in;$NAME$ dorazil do $PROV$;;;;;;x,,,,,,;
+UNITARRIVED_LOG;UNITARRIVED_LOG > OUR_FLEET=$OUR_FLEET$ + PROV=$PROV$ + OTHER=$OTHER$ + OTHERS=$OTHERS$ + RESERVE=$RESERVE$ + TARGET=$TARGET$ + CAP=$CAP$ + SUB=$SUB$ + NUM=$NUM$ + COUNTRY=$COUNTRY$ + TYPE=$TYPE$ + NAME=$NAME$ + SCR=$SCR$ + TRA=$TRA$ + BRIG=$BRIG$ + UNIT=$UNIT$ + MEN=$MEN$ + FIG=$FIG$ + BOM=$BOM$ + DEFENDER=$DEFENDER$ + ATTACKER=$ATTACKER$ + ATTUNIT=$ATTUNIT$ + DEFUNIT=$DEFUNIT$ + RESULT=$RESULT$ + USLOSS=$USLOSS$ + USNUM=$USNUM$ + OTHERRESULT=$OTHERRESULT$ + THEIRNUM=$THEIRNUM$ + THEIRLOST=$THEIRLOST$ + SHIPS=$SHIPS$ + THEIRSHIP=$THEIRSHIP$ + ORDER=$ORDER$ + DAMAGE=$DAMAGE$ + ATTACKER_ADJ=$ATTACKER_ADJ$ + DAMAGE_SHORT=$DAMAGE_SHORT$ + SIZE=$SIZE$ + SUNK=$SUNK$;$NAME$ est arrivé dans la province $PROV$;$NAME$ ist in $PROV$ angekommen;$NAME$ przyby³ do prowincji $PROV$;$NAME$ llegó a $PROV$;;$NAME$ è arrivato in $PROV$è arrivato in;$NAME$ dorazil do $PROV$;;;;;;x,,,,,,;
 UNITARRIVED_BTN1;OK;OK;OK;OK;OK;OK;Rendben;OK;;;;;;x,,,,,,;
 UNITARRIVED_BTN2;OK;OK;OK;OK;OK;OK;Rendben;OK;;;;;;x,,,,,,;
 UNITARRIVED_BTN3;GOTO;ALLER À;Gehe zu;ID DO;Ir allí;ANDARE;Menj ide:;PØEJÍT NA;;;;;;x,,,,,,;
@@ -74,7 +74,7 @@ ATTACKTHEM_3;$PROV$.;$PROV$.;$PROV$ begonnen hat.;;$PROV$.;;;;;;;;;x,,,,,,;
 ATTACKTHEM_4;We are attacking forces of $DEFENDER$ and attempting to dislodge their defences. We have engaged with ;Nous sommes les forces d'attaque de $DEFENDER$ et nous tentons de déplacer leurs défenses. Nous avons engagé le combat avec;Wir greifen Truppen aus $DEFENDER$ an und versuchen, sie aus ihren Stellungen zu werfen.;;Atacamos a las fuerzas de $DEFENDER$, en un intento de desbaratar sus defensas. Hemos entablado combate con ;;;;;;;;;x,,,,,,;
 ATTACKTHEM_5;*;*;Angreifer: $ATTUNIT$;;$ATTUNIT$\natacando a\n$DEFUNIT$;;;;;;;;;x,,,,,,;
 ATTACKTHEM_6;*;*;Verteidiger: $DEFUNIT$;;*;;;;;;;;;x,,,,,,;
-ATTACKTHEM_LOG;We have attacked the enemy in $PROV$.;Nous avons attaqué l'ennemi dans la province $PROV$.;Wir haben den Feind in $PROV$ angegriffen.;;Hemos atacado al enemigo en $PROV$.;;;;;;;;;x,,,,,,;
+ATTACKTHEM_LOG;DONE ATTACKTHEM_LOG > PROV=$PROV$ +  COUNTRY=$COUNTRY$ + DEFENDER=$DEFENDER$ + ATTACKER=$ATTACKER$ + ATTUNIT=$ATTUNIT$ + DEFUNIT=$DEFUNIT$;Nous avons attaqué l'ennemi dans la province $PROV$.;Wir haben den Feind in $PROV$ angegriffen.;;Hemos atacado al enemigo en $PROV$.;;;;;;;;;x,,,,,,;
 ATTACKTHEM_BTN1;OK;OK;OK;;OK;;;;;;;;;x,,,,,,;
 ATTACKTHEM_BTN2;OK;OK;OK;;OK;;;;;;;;;x,,,,,,;
 ATTACKTHEM_BTN3;Goto;Aller à;Gehe zu;;Ir allí;;;;;;;;;x,,,,,,;
@@ -87,7 +87,7 @@ ATTACKUS_3;$PROV$.;$PROV$.;$PROV$ angegriffen.;;$PROV$.;;;;;;;;;x,,,,,,;
 ATTACKUS_4;Hostile forces from $ATTACKER$ have engaged us with;Les forces ennemies de $ATTACKER$ ont engagé le combat avec nous et;Feindliche Truppen aus $ATTACKER$ greifen uns an.;;Fuerzas hostiles de $ATTACKER$ han entablado combate con nosotros con;;;;;;;;;x,,,,,,;
 ATTACKUS_5;*;$ATTUNIT$\nattaquent\n$DEFUNIT$.;Angreifer: $ATTUNIT$;;$ATTUNIT$\natacando a\n$DEFUNIT$;;;;;;;;;x,,,,,,;
 ATTACKUS_6;*;*;Verteidiger: $DEFUNIT$;;*;;;;;;;;;x,,,,,,;
-ATTACKUS_LOG;We have been attacked in $PROV$.;Nous avons été attaqués dans la province $PROV$.;Wir werden angegriffen in $PROV$.;;Hemos sido atacados en $PROV$.;;;;;;;;;x,,,,,,;
+ATTACKUS_LOG;DONE ATTACKUS_LOG > PROV=$PROV$ + COUNTRY=$COUNTRY$ + DEFENDER=$DEFENDER$ + ATTACKER=$ATTACKER$ + ATTUNIT=$ATTUNIT$ + DEFUNIT=$DEFUNIT$ + ;Nous avons été attaqués dans la province $PROV$.;Wir werden angegriffen in $PROV$.;;Hemos sido atacados en $PROV$.;;;;;;;;;x,,,,,,;
 ATTACKUS_BTN1;OK;OK;OK;;OK;;;;;;;;;x,,,,,,;
 ATTACKUS_BTN2;OK;OK;OK;;OK;;;;;;;;;x,,,,,,;
 ATTACKUS_BTN3;Goto;Aller à;Gehe zu;;Ir allí;;;;;;;;;x,,,,,,;
@@ -100,7 +100,7 @@ NAVALATTACKTHEM_3;$PROV$.;$PROV$.;aus $DEFENDER$ in $PROV$.;;$PROV$.;;;;;;;;;x,,
 NAVALATTACKTHEM_4;An enemy fleet consisting of ships from $DEFENDER$ will be destroyed by;Une flotte ennemie composée de navires de $DEFENDER$ sera détruite par;Angreifer: $ATTUNIT$;;Una flota enemiga compuesta por buques de $DEFENDER$ será destruida por;;;;;;;;;x,,,,,,;
 NAVALATTACKTHEM_5;$ATTUNIT$\nattacking\n$DEFUNIT$;$ATTUNIT$\nattaquant\n$DEFUNIT$.;Verteidiger: $DEFUNIT$;;$ATTUNIT$\natacando a\n$DEFUNIT$;;;;;;;;;x,,,,,,;
 NAVALATTACKTHEM_6;*;*;*;;*;;;;;;;;;x,,,,,,;
-NAVALATTACKTHEM_LOG;Our navy has engaged a hostile fleet in $PROV$.;Notre marine a engagé le combat avec une flotte ennemie dans la province $PROV$.;Unsere Flotte befindet sich im Kampf mit feindlichen Schiffen in $PROV$.;;Nuestra marina ha entablado combate con una flota hostil en $PROV$.;;;;;;;;;x,,,,,,;
+NAVALATTACKTHEM_LOG;DONE NAVALATTACKTHEM_LOG > PROV=$PROV$ + COUNTRY=$COUNTRY$ + DEFENDER=$DEFENDER$ + ATTACKER=$ATTACKER$ + ATTUNIT=$ATTUNIT$ + DEFUNIT=$DEFUNIT$;Notre marine a engagé le combat avec une flotte ennemie dans la province $PROV$.;Unsere Flotte befindet sich im Kampf mit feindlichen Schiffen in $PROV$.;;Nuestra marina ha entablado combate con una flota hostil en $PROV$.;;;;;;;;;x,,,,,,;
 NAVALATTACKTHEM_BTN1;OK;OK;OK;;OK;;;;;;;;;x,,,,,,;
 NAVALATTACKTHEM_BTN2;OK;OK;OK;;OK;;;;;;;;;x,,,,,,;
 NAVALATTACKTHEM_BTN3;Goto;Aller à;Gehe zu;;Ir allí;;;;;;;;;x,,,,,,;
@@ -113,7 +113,7 @@ NAVALATTACKUS_3;$PROV$.;$PROV$.;$PROV$.;;$PROV$.;;;;;;;;;x,,,,,,;
 NAVALATTACKUS_4;An enemy fleet consisting of ships from $ATTACKER$ with;Une flotte ennemie composée de navires de $ATTACKER$ et de;Eine feindliche Flotte aus $ATTACKER$ mit;;una flota enemiga compuesta de buques de $ATTACKER$ con;;;;;;;;;x,,,,,,;
 NAVALATTACKUS_5;$ATTUNIT$\nattacking our\n$DEFUNIT$;$ATTUNIT$\nattaquant nos\n$DEFUNIT$.;$ATTUNIT$\nattackiert unsere\n$DEFUNIT$;;$ATTUNIT$\natacando a nuestro\n$DEFUNIT$;;;;;;;;;x,,,,,,;
 NAVALATTACKUS_6;*;*;*;;*;;;;;;;;;x,,,,,,;
-NAVALATTACKUS_LOG;Our fleet in $PROV$ is under attack from hostile ships.;Notre flotte est attaquée par des navires ennemis dans la province $PROV$.;Unsere Flotte in $PROV$ wird von feindlichen Schiffen angegriffen.;;Nuestra flota en $PROV$ está siendo atacada por buques hostiles.;;;;;;;;;x,,,,,,;
+NAVALATTACKUS_LOG;NAVALATTACKUS_LOG > OUR_FLEET=$OUR_FLEET$ + PROV=$PROV$ + OTHER=$OTHER$ + OTHERS=$OTHERS$ + RESERVE=$RESERVE$ + TARGET=$TARGET$ + CAP=$CAP$ + SUB=$SUB$ + NUM=$NUM$ + COUNTRY=$COUNTRY$ + TYPE=$TYPE$ + NAME=$NAME$ + SCR=$SCR$ + TRA=$TRA$ + BRIG=$BRIG$ + UNIT=$UNIT$ + MEN=$MEN$ + FIG=$FIG$ + BOM=$BOM$ + DEFENDER=$DEFENDER$ + ATTACKER=$ATTACKER$ + ATTUNIT=$ATTUNIT$ + DEFUNIT=$DEFUNIT$ + RESULT=$RESULT$ + USLOSS=$USLOSS$ + USNUM=$USNUM$ + OTHERRESULT=$OTHERRESULT$ + THEIRNUM=$THEIRNUM$ + THEIRLOST=$THEIRLOST$ + SHIPS=$SHIPS$ + THEIRSHIP=$THEIRSHIP$ + ORDER=$ORDER$ + DAMAGE=$DAMAGE$ + ATTACKER_ADJ=$ATTACKER_ADJ$ + DAMAGE_SHORT=$DAMAGE_SHORT$ + SIZE=$SIZE$ + SUNK=$SUNK$;Notre flotte est attaquée par des navires ennemis dans la province $PROV$.;Unsere Flotte in $PROV$ wird von feindlichen Schiffen angegriffen.;;Nuestra flota en $PROV$ está siendo atacada por buques hostiles.;;;;;;;;;x,,,,,,;
 NAVALATTACKUS_BTN1;OK;OK;OK;;OK;;;;;;;;;x,,,,,,;
 NAVALATTACKUS_BTN2;OK;OK;OK;;OK;;;;;;;;;x,,,,,,;
 NAVALATTACKUS_BTN3;Goto;Aller à;Gehe zu;;Ir allí;;;;;;;;;x,,,,,,;
@@ -126,7 +126,7 @@ AIRATTACKTHEM_3;$PROV$.;$PROV$.;$PROV$ im Kampf mit feindlichen Flugzeugen aus;;
 AIRATTACKTHEM_4;The planes from $DEFENDER$ will be destroyed by;Les avions de $DEFENDER$ seront détruits par;$DEFENDER$.;;Los aviones de $DEFENDER$ serán destruidos por;;;;;;;;;x,,,,,,;
 AIRATTACKTHEM_5;$ATTUNIT$\nattacking\n$DEFUNIT$;les $ATTUNIT$\nattaquant les\n$DEFUNIT$.;Angreifer: $ATTUNIT$;;$ATTUNIT$\natacando a\n$DEFUNIT$;;;;;;;;;x,,,,,,;
 AIRATTACKTHEM_6;*;*;Verteidiger: $DEFUNIT$;;*;;;;;;;;;x,,,,,,;
-AIRATTACKTHEM_LOG;Our air force has engaged targets above $PROV$.;Nos forces aériennes ont engagé des cibles au-dessus de la province $PROV$.;Unsere Flotte greift Ziele an über $PROV$.;;Nuestra fuerza aérea ha entablado combate con objetivos sobre $PROV$.;;;;;;;;;x,,,,,,;
+AIRATTACKTHEM_LOG;DONE AIRATTACKTHEM_LOG > PROV=$PROV$ + COUNTRY=$COUNTRY$ + DEFENDER=$DEFENDER$ + ATTACKER=$ATTACKER$ + ATTUNIT=$ATTUNIT$ + DEFUNIT=$DEFUNIT$;Nos forces aériennes ont engagé des cibles au-dessus de la province $PROV$.;Unsere Flotte greift Ziele an über $PROV$.;;Nuestra fuerza aérea ha entablado combate con objetivos sobre $PROV$.;;;;;;;;;x,,,,,,;
 AIRATTACKTHEM_BTN1;OK;OK;OK;;OK;;;;;;;;;x,,,,,,;
 AIRATTACKTHEM_BTN2;OK;OK;OK;;OK;;;;;;;;;x,,,,,,;
 AIRATTACKTHEM_BTN3;Goto;Aller à;Gehe zu;;Ir allí;;;;;;;;;x,,,,,,;
@@ -139,7 +139,7 @@ AIRATTACKUS_3;$PROV$.;$PROV$.;in $PROV$ von feindlichen Flugzeugen aus;;$PROV$.;
 AIRATTACKUS_4;Aircraft from $ATTACKER$ with;Avions de $ATTACKER$ comportant;$ATTACKER$ angegriffen werden.;;Aeronaves de $ATTACKER$ con;;;;;;;;;x,,,,,,;
 AIRATTACKUS_5;$ATTUNIT$\nattacking our\n$DEFUNIT$;des $ATTUNIT$\nattaquant nos\n$DEFUNIT$.;Angreifer: $ATTUNIT$;;$ATTUNIT$\natacando a nuestro\n$DEFUNIT$;;;;;;;;;x,,,,,,;
 AIRATTACKUS_6;*;*;Verteidiger: $DEFUNIT$;;*;;;;;;;;;x,,,,,,;
-AIRATTACKUS_LOG;Hostile planes have engaged us above $PROV$.;Des avions ennemis nous ont attaqués au-dessus de la province $PROV$.;Feindflugzeuge greifen uns über $PROV$ an.;;Aviones hostiles nos han atacado sobre $PROV$.;;;;;;;;;x,,,,,,;
+AIRATTACKUS_LOG;AIRATTACKUS_LOG > OUR_FLEET=$OUR_FLEET$ + PROV=$PROV$ + OTHER=$OTHER$ + OTHERS=$OTHERS$ + RESERVE=$RESERVE$ + TARGET=$TARGET$ + CAP=$CAP$ + SUB=$SUB$ + NUM=$NUM$ + COUNTRY=$COUNTRY$ + TYPE=$TYPE$ + NAME=$NAME$ + SCR=$SCR$ + TRA=$TRA$ + BRIG=$BRIG$ + UNIT=$UNIT$ + MEN=$MEN$ + FIG=$FIG$ + BOM=$BOM$ + DEFENDER=$DEFENDER$ + ATTACKER=$ATTACKER$ + ATTUNIT=$ATTUNIT$ + DEFUNIT=$DEFUNIT$ + RESULT=$RESULT$ + USLOSS=$USLOSS$ + USNUM=$USNUM$ + OTHERRESULT=$OTHERRESULT$ + THEIRNUM=$THEIRNUM$ + THEIRLOST=$THEIRLOST$ + SHIPS=$SHIPS$ + THEIRSHIP=$THEIRSHIP$ + ORDER=$ORDER$ + DAMAGE=$DAMAGE$ + ATTACKER_ADJ=$ATTACKER_ADJ$ + DAMAGE_SHORT=$DAMAGE_SHORT$ + SIZE=$SIZE$ + SUNK=$SUNK$;Des avions ennemis nous ont attaqués au-dessus de la province $PROV$.;Feindflugzeuge greifen uns über $PROV$ an.;;Aviones hostiles nos han atacado sobre $PROV$.;;;;;;;;;x,,,,,,;
 AIRATTACKUS_BTN1;OK;OK;OK;;OK;;;;;;;;;x,,,,,,;
 AIRATTACKUS_BTN2;OK;OK;OK;;OK;;;;;;;;;x,,,,,,;
 AIRATTACKUS_BTN3;Goto;Aller à;Gehe zu;;Ir allí;;;;;;;;;x,,,,,,;
@@ -152,7 +152,7 @@ LANDBATTLEOVER_3;The $NAME$!;Les $NAME$ !;Die $NAME$!;$NAME$!;la $NAME$!;$NAME$!
 LANDBATTLEOVER_4;During the struggle $USLOSS$ of our $USNUM$ troops were killed.;Pendant le combat $USLOSS$ de nos $USNUM$ troupes ont été tuées.;$RESULT$. Während des Kampfes wurden $USLOSS$ unserer $USNUM$ Soldaten getötet.;Podczas walk zginê³o $USLOSS$ z $USNUM$ naszych ¿o³nierzy.;Durante la lucha, $USLOSS$ de nuestras $USNUM$ tropas perecieron.;Nel corso della battaglia, $USLOSS$ dei nostri $USNUM$ uomini sono stati uccisi.;$USLOSS$ veszett oda a $USNUM$ fõs seregünkbõl.;V bojích padlo $USLOSS$ z našich $USNUM$ vojákù.;;;;;;x,,,;
 LANDBATTLEOVER_5;$OTHER$;$OTHER$;$OTHER$;$OTHER$ - ;$OTHER$;$OTHER$;$OTHER$;$OTHER$;;;;;;x,,,,,,;
 LANDBATTLEOVER_6;has $OTHERRESULT$ the battle. Out of $THEIRNUM$ Troops, $THEIRLOST$ were killed.;a $OTHERRESULT$ la bataille. $THEIRLOST$  sur $THEIRNUM$ de leurs troupes ont été tuées.;hat die Schlacht $OTHERRESULT$. Von $THEIRNUM$ Soldaten fielen $THEIRLOST$.;$OTHERRESULT$ bitwê. Z armii licz¹cej $THEIRNUM$, zginê³o $THEIRLOST$ ¿o³nierzy.;ha $OTHERRESULT$ la batalla. De $THEIRNUM$ tropas que tenían, han muerto $THEIRLOST$.;ha $OTHERRESULT$ la battaglia. Di $THEIRNUM$ uomini, $THEIRLOST$ sono stati uccisi.;$OTHERRESULT$ a csatában. Az õ oldalukon a $THEIRNUM$ fõbõl $THEIRLOST$ veszett oda.;dosáhl $OTHERRESULT$ v boji. Z $THEIRNUM$ vojákù jich $THEIRLOST$ padlo.;;;;;;x,;
-LANDBATTLEOVER_LOG;We $RESULT$ the $NAME$. We lost $USLOSS$ of $USNUM$ , $OTHER$ lost $THEIRLOST$ of $THEIRNUM$;Nous avons $RESULT$ $NAME$.;Wir haben die $NAME$ $RESULT$ . Auf unserer Seite sind $USLOSS$ von $USNUM$  Soldaten gefallen, $OTHER$ verlor $THEIRLOST$ von $THEIRNUM$ Soldaten;$RESULT$ $NAME$.;Hemos $RESULT$ la $NAME$.;Noi abbiamo $RESULT$ $NAME$.;$NAME$ eredménye: $RESULT$.;My jsme dosáhli: $RESULT$ $NAME$.;;;;;;x,,,,,,;
+LANDBATTLEOVER_LOG;DONE LANDBATTLEOVER_LOG > OTHER=$OTHER$ + COUNTRY=$COUNTRY$ + NAME=$NAME$  + RESULT=$RESULT$ + USLOSS=$USLOSS$ + USNUM=$USNUM$ + OTHERRESULT=$OTHERRESULT$ + THEIRNUM=$THEIRNUM$ + THEIRLOST=$THEIRLOST$;Nous avons $RESULT$ $NAME$.;Wir haben die $NAME$ $RESULT$ . Auf unserer Seite sind $USLOSS$ von $USNUM$  Soldaten gefallen, $OTHER$ verlor $THEIRLOST$ von $THEIRNUM$ Soldaten;$RESULT$ $NAME$.;Hemos $RESULT$ la $NAME$.;Noi abbiamo $RESULT$ $NAME$.;$NAME$ eredménye: $RESULT$.;My jsme dosáhli: $RESULT$ $NAME$.;;;;;;x,,,,,,;
 LANDBATTLEOVER_BTN1;OK;OK;OK;OK;OK;OK;Rendben;OK;;;;;;x,,,,,,;
 LANDBATTLEOVER_BTN2;OK;OK;OK;OK;OK;OK;Rendben;OK;;;;;;x,,,,,,;
 LANDBATTLEOVER_BTN3;Goto;Aller à;Gehe zu;IdŸ do;Ir allí;Andare;Ugrás;Pøejít na;;;;;;x,,,,,,;
@@ -168,7 +168,7 @@ NAVALBATTLEOVER_3;The $NAME$!;$NAME$ !;$RESULT$. ;$NAME$!;la $NAME$!;$NAME$!;a $
 NAVALBATTLEOVER_4;The fleet from;La flotte de;Die Flotte(n) von $OTHER$ ;Si³y;La flota de;Le forze di:;   ;Jednotky;;;;;;x,,,,,,;
 NAVALBATTLEOVER_5;$OTHER$;$OTHER$;$OTHERRESULT$.;$OTHER$ - ;$OTHER$;$OTHER$;$OTHER$ erõi;$OTHER$;;;;;;x,,,,,,;
 NAVALBATTLEOVER_6;is $OTHERRESULT$. We lost $SHIPS$ while they lost $THEIRSHIP$ .;est $OTHERRESULT$. Nous avons perdu $SHIPS$ alors qu'ils en ont perdu $THEIRSHIP$ .;Wir verloren $SHIPS$, $OTHER$ verlor $THEIRSHIP$.;;ha $OTHERRESULT$. Hemos perdido $SHIPS$ y ellos $THEIRSHIP$.;;;;;;;;;x,,,,,,;
-NAVALBATTLEOVER_LOG;We $RESULT$ the $NAME$.;Nous avons $RESULT$ $NAME$.;Wir haben die $NAME$ $RESULT$.;$RESULT$ $NAME$.;Hemos $RESULT$ la $NAME$.;Noi abbiamo $RESULT$ $NAME$.;$NAME$ eredménye: $RESULT$.;My jsme dosáhli: $RESULT$ $NAME$.;;;;;;x,,,,,,;
+NAVALBATTLEOVER_LOG;DONE NAVALBATTLEOVER_LOG > OTHER=$OTHER$ + COUNTRY=$COUNTRY$ + NAME=$NAME$ + RESULT=$RESULT$ + OTHERRESULT=$OTHERRESULT$ + SHIPS=$SHIPS$ + THEIRSHIP=$THEIRSHIP$;Nous avons $RESULT$ $NAME$.;Wir haben die $NAME$ $RESULT$.;$RESULT$ $NAME$.;Hemos $RESULT$ la $NAME$.;Noi abbiamo $RESULT$ $NAME$.;$NAME$ eredménye: $RESULT$.;My jsme dosáhli: $RESULT$ $NAME$.;;;;;;x,,,,,,;
 NAVALBATTLEOVER_BTN1;OK;OK;OK;OK;OK;OK;Rendben;OK;;;;;;x,,,,,,;
 NAVALBATTLEOVER_BTN2;OK;OK;OK;OK;OK;OK;Rendben;OK;;;;;;x,,,,,,;
 NAVALBATTLEOVER_BTN3;Goto;Aller à;Gehe zu;IdŸ do;Ir allí;Andare;Ugrás;Pøejít na;;;;;;x,,,,,,;
@@ -186,7 +186,7 @@ AIRBATTLEOVER_3;The $NAME$!;$NAME$ !;$NAME$!;;la $NAME$!;;;;;;;;;x,,,,,,;
 AIRBATTLEOVER_4;The forces of;Les forces de;Die Truppen von;;Las fuerzas de;;;;;;;;;x,,,,,,;
 AIRBATTLEOVER_5;$OTHER$;$OTHER$;$OTHER$;;$OTHER$;;;;;;;;;x,,,,,,;
 AIRBATTLEOVER_6;have $OTHERRESULT$.;sont $OTHERRESULT$.;haben $OTHERRESULT$.;;han $OTHERRESULT$.;;;;;;;;;x,,,,,,;
-AIRBATTLEOVER_LOG;We $RESULT$ the $NAME$.;Nous avons $RESULT$ $NAME$.;Wir $RESULT$: $NAME$.;;Hemos $RESULT$ la $NAME$.;;;;;;;;;x,,,,,,;
+AIRBATTLEOVER_LOG;AIRBATTLEOVER_LOG > OUR_FLEET=$OUR_FLEET$ + PROV=$PROV$ + OTHER=$OTHER$ + OTHERS=$OTHERS$ + RESERVE=$RESERVE$ + TARGET=$TARGET$ + CAP=$CAP$ + SUB=$SUB$ + NUM=$NUM$ + COUNTRY=$COUNTRY$ + TYPE=$TYPE$ + NAME=$NAME$ + SCR=$SCR$ + TRA=$TRA$ + BRIG=$BRIG$ + UNIT=$UNIT$ + MEN=$MEN$ + FIG=$FIG$ + BOM=$BOM$ + DEFENDER=$DEFENDER$ + ATTACKER=$ATTACKER$ + ATTUNIT=$ATTUNIT$ + DEFUNIT=$DEFUNIT$ + RESULT=$RESULT$ + USLOSS=$USLOSS$ + USNUM=$USNUM$ + OTHERRESULT=$OTHERRESULT$ + THEIRNUM=$THEIRNUM$ + THEIRLOST=$THEIRLOST$ + SHIPS=$SHIPS$ + THEIRSHIP=$THEIRSHIP$ + ORDER=$ORDER$ + DAMAGE=$DAMAGE$ + ATTACKER_ADJ=$ATTACKER_ADJ$ + DAMAGE_SHORT=$DAMAGE_SHORT$ + SIZE=$SIZE$ + SUNK=$SUNK$;Nous avons $RESULT$ $NAME$.;Wir $RESULT$: $NAME$.;;Hemos $RESULT$ la $NAME$.;;;;;;;;;x,,,,,,;
 AIRBATTLEOVER_BTN1;OK;OK;OK;;OK;;;;;;;;;x,,,,,,;
 AIRBATTLEOVER_BTN2;OK;OK;OK;;OK;;;;;;;;;x,,,,,,;
 AIRBATTLEOVER_BTN3;Goto;Aller à;Gehe zu;;Ir allí;;;;;;;;;x,,,,,,;
@@ -199,7 +199,7 @@ BOMBTHEM_3;$ORDER$;$ORDER$;$ORDER$ in;;$ORDER$;;;;;;;;;x,,,,,,;
 BOMBTHEM_4;in;dans ;$PROV$;;en;;;;;;;;;x,,,,,,;
 BOMBTHEM_5;$PROV$;$PROV$.;Angreifer: $ATTUNIT$;;$PROV$;;;;;;;;;x,,,,,,;
 BOMBTHEM_6;$ATTUNIT$\nattacking\n$DEFUNIT$;$ATTUNIT$\nattaquant\n$DEFUNIT$;Verteidiger: $DEFUNIT$;;$ATTUNIT$\natacando a\n$DEFUNIT$;;;;;;;;;x,,,,,,;
-BOMBTHEM_LOG;Our air force has started with a $ORDER$ of $PROV$.;Nos forces aériennes ont commencé à $ORDER$ la province $PROV$.;Unsere Luftwaffe hat  $ORDER$ von $PROV$ begonnen.;;Nuestra fuerza aérea ha comenzado con $ORDER$ de $PROV$.;;;;;;;;;x,,,,,,;
+BOMBTHEM_LOG;DONE BOMBTHEM_LOG > PROV=$PROV$ + COUNTRY=$COUNTRY$ + DEFENDER=$DEFENDER$ + ATTACKER=$ATTACKER$ + ATTUNIT=$ATTUNIT$ + DEFUNIT=$DEFUNIT$ + ORDER=$ORDER$;Nos forces aériennes ont commencé à $ORDER$ la province $PROV$.;Unsere Luftwaffe hat  $ORDER$ von $PROV$ begonnen.;;Nuestra fuerza aérea ha comenzado con $ORDER$ de $PROV$.;;;;;;;;;x,,,,,,;
 BOMBTHEM_BTN1;OK;OK;OK;;OK;;;;;;;;;x,,,,,,;
 BOMBTHEM_BTN2;OK;OK;OK;;OK;;;;;;;;;x,,,,,,;
 BOMBTHEM_BTN3;Goto;Aller à;Gehe zu;;Ir allí;;;;;;;;;x,,,,,,;
@@ -212,7 +212,7 @@ BOMBUS_3;$ORDER$;$ORDER$ actuellement;feindliche Flugzeuge mit dem Befehl ;;$ORD
 BOMBUS_4;in;la province;$ORDER$ in $PROV$ angreifen.;;en;;;;;;;;;x,,,,,,;
 BOMBUS_5;$PROV$;$PROV$.;Angreifer: $ATTUNIT$;;$PROV$;;;;;;;;;x,,,,,,;
 BOMBUS_6;$ATTUNIT$\nattacking\n$DEFUNIT$;$ATTUNIT$\nattaquant\n$DEFUNIT$;Verteidiger: $DEFUNIT$;;$ATTUNIT$\natacando a\n$DEFUNIT$;;;;;;;;;x,,,,,,;
-BOMBUS_LOG;Hostile planes are performing a $ORDER$ in $PROV$.;Des avions ennemis effectuent un $ORDER$ dans la province $PROV$.;Feindflugzeuge $ORDER$ in $PROV$.;;Aeronaves hostiles realizan un $ORDER$ en $PROV$.;;;;;;;;;x,,,,,,;
+BOMBUS_LOG;DONE BOMBUS_LOG > PROV=$PROV$ + COUNTRY=$COUNTRY$ + DEFENDER=$DEFENDER$ + ATTACKER=$ATTACKER$ + ATTUNIT=$ATTUNIT$ + DEFUNIT=$DEFUNIT$ + ORDER=$ORDER$;Des avions ennemis effectuent un $ORDER$ dans la province $PROV$.;Feindflugzeuge $ORDER$ in $PROV$.;;Aeronaves hostiles realizan un $ORDER$ en $PROV$.;;;;;;;;;x,,,,,,;
 BOMBUS_BTN1;OK;OK;OK;;OK;;;;;;;;;x,,,,,,;
 BOMBUS_BTN2;OK;OK;OK;;OK;;;;;;;;;x,,,,,,;
 BOMBUS_BTN3;Goto;Aller à;Gehe zu;;Ir allí;;;;;;;;;x,,,,,,;
@@ -225,7 +225,7 @@ BOMBENDTHEM_3;$PROV$;$PROV$.;$PROV$;;$PROV$;;;;;;;;;x,,,,,,;
 BOMBENDTHEM_4;Doing the following damage;Cela a produit les dégâts suivants :;mit dem folgenden Schaden;;Han provocado los siguientes daños;;;;;;;;;x,,,,,,;
 BOMBENDTHEM_5;$DAMAGE$.;$DAMAGE$.;$DAMAGE$.;;$DAMAGE$.;;;;;;;;;x,,,,,,;
 BOMBENDTHEM_6;*;*;*;;*;;;;;;;;;x,,,,,,;
-BOMBENDTHEM_LOG;$ORDER$ performed in $PROV$;$ORDER$ effectué dans la province $PROV$;$ORDER$ in $PROV$ ausgeführt;;$ORDER$ realizado en $PROV$;;;;;;;;;x,,,,,,;
+BOMBENDTHEM_LOG;DONE BOMBENDTHEM_LOG > PROV=$PROV$ + COUNTRY=$COUNTRY$ + ATTACKER=$ATTACKER$ + ORDER=$ORDER$ + DAMAGE=$DAMAGE$ + ATTACKER_ADJ=$ATTACKER_ADJ$ + DAMAGE_SHORT=$DAMAGE_SHORT$;$ORDER$ effectué dans la province $PROV$;$ORDER$ in $PROV$ ausgeführt;;$ORDER$ realizado en $PROV$;;;;;;;;;x,,,,,,;
 BOMBENDTHEM_BTN1;OK;OK;OK;;OK;;;;;;;;;x,,,,,,;
 BOMBENDTHEM_BTN2;OK;OK;OK;;OK;;;;;;;;;x,,,,,,;
 BOMBENDTHEM_BTN3;Goto;Aller à;Gehe zu;;Ir allí;;;;;;;;;x,,,,,,;
@@ -238,7 +238,7 @@ BOMBENDUS_3;$PROV$;$PROV$.;$ORDER$ in $PROV$;;$PROV$;;;;;;;;;x,,,,,,;
 BOMBENDUS_4;Doing the following damage;Ceci a produit les dégâts suivants :;mit dem folgenden Schaden aus:;;Han provocado los siguientes daños;;;;;;;;;x,,,,,,;
 BOMBENDUS_5;$DAMAGE$.;$DAMAGE$.;$DAMAGE$;;$DAMAGE$.;;;;;;;;;x,,,,,,;
 BOMBENDUS_6;*;*;*;;*;;;;;;;;;x,,,,,,;
-BOMBENDUS_LOG;$ATTACKER_ADJ$ aircraft did a $ORDER$ in $PROV$, $DAMAGE_SHORT$.;Les avions de $ATTACKER_ADJ$ ont $ORDER$ dans la province $PROV$, $DAMAGE_SHORT$.;$ATTACKER_ADJ$-Flugzeuge führen $ORDER$ aus in $PROV$, $DAMAGE_SHORT$.;;Aeronaves $ATTACKER_ADJ$ realizaron un $ORDER$ en $PROV$, $DAMAGE_SHORT$.;;;;;;;;;x,,,,,;
+BOMBENDUS_LOG;DONE BOMBENDUS_LOG > PROV=$PROV$ + COUNTRY=$COUNTRY$ + ATTACKER=$ATTACKER$ + ORDER=$ORDER$ + DAMAGE=$DAMAGE$ + ATTACKER_ADJ=$ATTACKER_ADJ$ + DAMAGE_SHORT=$DAMAGE_SHORT$;Les avions de $ATTACKER_ADJ$ ont $ORDER$ dans la province $PROV$, $DAMAGE_SHORT$.;$ATTACKER_ADJ$-Flugzeuge führen $ORDER$ aus in $PROV$, $DAMAGE_SHORT$.;;Aeronaves $ATTACKER_ADJ$ realizaron un $ORDER$ en $PROV$, $DAMAGE_SHORT$.;;;;;;;;;x,,,,,;
 BOMBENDUS_BTN1;OK;OK;OK;;OK;;;;;;;;;x,,,,,,;
 BOMBENDUS_BTN2;OK;OK;OK;;OK;;;;;;;;;x,,,,,,;
 BOMBENDUS_BTN3;Goto;Aller à;Gehe zu;;Ir allí;;;;;;;;;x,,,,,,;
