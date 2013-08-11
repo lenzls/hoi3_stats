@@ -204,11 +204,24 @@ class LogAction(threading.Thread):
 			# split on new line
 			lines = text.split("\n")
 			# remove empty lines
-			#print lines
 			lines = [line for line in lines if not line == ""]
-			#print lines
 
-			return lines
+			#concat lines that belong to one message
+			msg_lines = []
+			#remove first line if it doesn't start with a date
+			if re.match("^{}".format(LogAction.date_regex), lines[0]) == None:
+				lines = lines[1:]
+
+			#assume first line starts with a date
+			assert(not re.match("^{}".format(LogAction.date_regex), lines[0]) == None)
+			msg_lines.append(lines[0])
+			for line in lines[1:]:
+				if not re.match("^{}".format(LogAction.date_regex), line) == None:
+					msg_lines.append(line)
+				# if line doesn't start with a date, add it to the previous one
+				else:
+					msg_lines[-1] = msg_lines[-1] + " " + line
+			return msg_lines
 
 		message_lines = split_text_in_message_lines(guess_text)
 
