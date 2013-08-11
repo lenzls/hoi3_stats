@@ -36,13 +36,14 @@ class HotkeyManager():
 		#	self.app.stop()
 
 		# F9
-		if event.KeyID == 120:
-			print 'F9'
+		if event.Alt == 32 and event.KeyID == 120:
+			print 'alt+F9'
 			self.app.invoce_logging_action()
 
 		# alt + F8
 		if event.Alt == 32 and event.KeyID == 119:
 			print 'alt+f8'
+			self.app.stop()
 
 		# return True to pass the event to other handlers
 		return True
