@@ -131,23 +131,30 @@ class LogAction(threading.Thread):
 			# split on new line
 			lines = text.split("\n")
 			# remove empty lines
-			print lines
+			#print lines
 			lines = [line for line in lines if not line == ""]
-			print lines
+			#print lines
 
 			return lines
 
 		def check_for_pattern(line):
-			date_regex = "([1-9][0-9]|[0-9]):[0-5][0-9], [A-Za-z0-9]*"
-			patterns = {
-							"NAVALBATTLEOVER_LOG" : "We [:alpha:] the [:alpha:]."
+			time_regex = "([0-9]|1[0-9]|2[0-3]):([0-5][0-9])"
+			day_regex = "([1-9]|1[0-9]|2[0-9]|3[0-1])"
+			month_regex = "(January|February|March|April|May|June|July|August|September|October|November|Decemeber)"
+			year_regex = "(19(?:2[6-9]|4[0-8]))"
+			date_regex = "{}, {} {}, {}".format(time_regex, day_regex, month_regex, year_regex)
+
+			event_patterns = {
+							"NAVALBATTLEOVER_LOG" : "We (?P<RESULT>[\w ]*) the (?P<NAME>[\w ]*)."
 						}
 			found = 0
-			for name in patterns.keys():
-				pattern = patterns[name]
+			for name in event_patterns.keys():
+				event_pattern = event_patterns[name]
+				pattern = "{} {}".format(date_regex, event_pattern)
+				print "searching for pattern {} in {}".format(pattern, line.encode("utf-8"))
 				if re.match(pattern, line):
 					found += 1
-					"Pattern \"{}\"({}) matched for line: {}".format(name, pattern, line)
+					print "Pattern \"{}\" matched for line: {}".format(name, line.encode("utf-8"))
 			print "Found {} pattern matching this line.".format(found)
 
 		lines = split_text_in_message_lines(postprocessed_text)
