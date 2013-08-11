@@ -31,9 +31,9 @@ class HotkeyManager():
 		#    print 'Transition', event.Transition
 
 		# ctrl + c
-		if event.Ascii == 3:
-			print "yeag... quit.."
-			#self.app.stop()
+		#if event.Ascii == 3:
+		#	print "yeag... quit.."
+		#	self.app.stop()
 
 		# F9
 		if event.KeyID == 120:
