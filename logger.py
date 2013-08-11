@@ -24,10 +24,12 @@ class LogAction(threading.Thread):
 	GUESS_PATH_BASE = "./tmp_tesseract_file"
 	GUESS_PATH = GUESS_PATH_BASE + ".txt"
 	PROVINCE_NAMES_PATH = "C:\\Program Files (x86)\\Steam\\SteamApps\\common\\Hearts of Iron 3\\tfh\\mod\\hoi3_stats\\localisation\\province_names.csv"
+	EVENT_PATTERNS_PATH = "C:\\Program Files (x86)\\Steam\\SteamApps\\common\\Hearts of Iron 3\\tfh\\mod\\hoi3_stats\\localisation\\unit_messages.csv"
 	LOG_POSITION = (861, 815)  # position of the game log in absolute screen coordinates
 	LOG_DIMENSIONS = (437, 139)  # dimensions of the game log
 
 	provinces_list = []
+	event_patterns = {}
 
 	@staticmethod
 	def generate_provinces_list(debug=False):
@@ -40,6 +42,76 @@ class LogAction(threading.Thread):
 			print "Here are the first entries:"
 			for line in LogAction.provinces_list[:11]:
 				print "{} : {}".format(type(line), line.encode("utf-8"))
+
+	@staticmethod
+	def generate_event_pattern_dict(debug=False):
+		print "generating event pattern dictionary"
+
+		def replace_variables_to_regex(line):
+			variables = {
+			"chief_of_navy" : "(?P<chief_of_navy>[\w ]*)",
+			"MONARCHTITLE" : "(?P<MONARCHTITLE>[\w ]*)",
+			"OUR_FLEET" : "(?P<OUR_FLEET>[\w ]*)",
+			"PROV" : "(?P<PROV>[\w ]*)",
+			"OTHER" : "(?P<OTHER>[\w ]*)",
+			"OTHERS" : "(?P<OTHERS>[\w ]*)",
+			"RESERVE" : "(?P<RESERVE>[\w ]*)",
+			"TARGET" : "(?P<TARGET>[\w ]*)",
+			"CAP" : "(?P<CAP>[\w ]*)",
+			"SUB" : "(?P<SUB>[\w ]*)",
+			"chief_of_air" : "(?P<chief_of_air>[\w ]*)",
+			"NUM" : "(?P<NUM>[\w ]*)",
+			"minister_of_security" : "(?P<minister_of_security>[\w ]*)",
+			"COUNTRY" : "(?P<COUNTRY>[\w ]*)",
+			"chief_of_staff" : "(?P<chief_of_staff>[\w ]*)",
+			"TYPE" : "(?P<TYPE>[\w ]*)",
+			"NAME" : "(?P<NAME>[\w ]*)",
+			"SCR" : "(?P<SCR>[\w ]*)",
+			"TRA" : "(?P<TRA>[\w ]*)",
+			"BRIG" : "(?P<BRIG>[\w ]*)",
+			"UNIT" : "(?P<UNIT>[\w ]*)",
+			"MEN" : "(?P<MEN>[\w ]*)",
+			"FIG" : "(?P<FIG>[\w ]*)",
+			"BOM" : "(?P<BOM>[\w ]*)",
+			"DEFENDER" : "(?P<DEFENDER>[\w ]*)",
+			"ATTACKER" : "(?P<ATTACKER>[\w ]*)",
+			"ATTUNIT" : "(?P<ATTUNIT>[\w ]*)",
+			"DEFUNIT" : "(?P<DEFUNIT>[\w ]*)",
+			"chief_of_army" : "(?P<chief_of_army>[\w ]*)",
+			"RESULT" : "(?P<RESULT>[\w ]*)",
+			"USLOSS" : "(?P<USLOSS>[\w ]*)",
+			"USNUM" : "(?P<USNUM>[\w ]*)",
+			"OTHERRESULT" : "(?P<OTHERRESULT>[\w ]*)",
+			"THEIRNUM" : "(?P<THEIRNUM>[\w ]*)",
+			"THEIRLOST" : "(?P<THEIRLOST>[\w ]*)",
+			"SHIPS" : "(?P<SHIPS>[\w ]*)",
+			"THEIRSHIP" : "(?P<THEIRSHIP>[\w ]*)",
+			"ORDER" : "(?P<ORDER>[\w ]*)",
+			"DAMAGE" : "(?P<DAMAGE>[\w ]*)",
+			"ATTACKER_ADJ" : "(?P<ATTACKER_ADJ>[\w ]*)",
+			"DAMAGE_SHORT" : "(?P<DAMAGE_SHORT>[\w ]*)",
+			"SIZE" : "(?P<SIZE>[\w ]*)",
+			"SUNK" : "(?P<SUNK>[\w ]*)"
+			}
+			for var in variables.keys():
+				regex = variables[var]
+				line = line.replace("${}$".format(var), regex)
+			return line
+
+		full_file_lines = read_text_file(LogAction.EVENT_PATTERNS_PATH, enc="latin1").split("\n")
+		event_regex = "(?P<type>[^;]*);(?P<english>[^;]*);.*"
+		for line in full_file_lines:
+			match = re.match(event_regex, line)
+			if match == None:
+				continue
+			if match.group("type").endswith("LOG"):
+				LogAction.event_patterns[match.group("type")] = replace_variables_to_regex(match.group("english"))
+
+		if debug:
+			print "{} event patterns found".format(len(LogAction.event_patterns))
+			print "Here are the first entries:"
+			for pat_name in LogAction.event_patterns.keys()[:11]:
+				print "{} : {} : {}".format(type(pat_name), pat_name.encode("utf-8"), LogAction.event_patterns[pat_name].encode("utf-8"))
 
 	def __init__(self, overlay, **kwargs):
 		print len(LogAction.provinces_list)

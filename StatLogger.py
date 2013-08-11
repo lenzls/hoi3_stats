@@ -57,6 +57,7 @@ class StatLogger():
 		self.running = True
 
 		LogAction.generate_provinces_list(debug=True)
+		LogAction.generate_event_pattern_dict(debug=True)
 
 		self.start()
 
