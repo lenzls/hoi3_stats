@@ -137,7 +137,25 @@ class LogAction(threading.Thread):
 			lines = [line for line in lines if not line == ""]
 			print lines
 
-		split_text_in_message_lines(postprocessed_text)
+			return lines
+
+		def check_for_pattern(line):
+			date_regex = "([1-9][0-9]|[0-9]):[0-5][0-9], [A-Za-z0-9]*"
+			patterns = {
+							"NAVALBATTLEOVER_LOG" : "We [:alpha:] the [:alpha:]."
+						}
+			found = 0
+			for name in patterns.keys():
+				pattern = patterns[name]
+				if re.match(pattern, line):
+					found += 1
+					"Pattern \"{}\"({}) matched for line: {}".format(name, pattern, line)
+			print "Found {} pattern matching this line.".format(found)
+
+		lines = split_text_in_message_lines(postprocessed_text)
+		for line in lines:
+			check_for_pattern(line)
+
 		validated = True
 		while not validated:
 			# do tests and set validated to true if all of the work properly
