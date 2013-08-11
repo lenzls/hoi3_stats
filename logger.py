@@ -43,14 +43,8 @@ class LogAction(threading.Thread):
 			print "Please generate provinces list before logging"
 			raise NotCorrectInitializedException("Provinces list not generated")
 
-
 		threading.Thread.__init__(self, **kwargs)
 		self.overlay = overlay
-
-		print "current thread anzahl {}".format(threading.active_count())
-		print "current thread name {}".format(threading.currentThread())
-		for thread in threading.enumerate():
-			print "thread {} name {}".format(thread, thread.name)
 
 	def makeScreenshot(self):
 		statustext = "Generate Screenshot at {}".format(self.SCREENSHOT_PATH)
