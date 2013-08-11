@@ -6,6 +6,11 @@ from os.path import splitext
 from subprocess import check_call
 from PIL import ImageGrab 
 import threading
+def read_text_file(filepath, mode="r", enc="utf-8"):
+    opened = codecs.open(filepath, mode, enc)
+    content = opened.read()
+    opened.close()
+    return content
 
 class LogAction(threading.Thread):
 
@@ -92,7 +97,7 @@ class LogAction(threading.Thread):
 		print statustext
 		self.overlay.req_queue.put((overlay.Overlay.REQUEST_STATUS_UPDATE, statustext))
 
-		guess_text = self.read_text_file(guess_path)
+		guess_text = read_text_file(guess_path)
 		self.validation(guess_text)
 
 	def validation(self, postprocessed_text):
@@ -129,12 +134,6 @@ class LogAction(threading.Thread):
 		self.overlay.req_queue.put((overlay.Overlay.REQUEST_STATUS_UPDATE, statustext))
 
 		print validated_text_block
-
-	def read_text_file(self, filepath):
-	    opened = open(filepath)
-	    content = opened.read()
-	    opened.close()
-	    return content
 
 	def run(self):
 		self.makeScreenshot()
