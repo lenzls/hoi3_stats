@@ -191,12 +191,6 @@ class LogAction(threading.Thread):
 		self.overlay.req_queue.put((overlay.Overlay.REQUEST_STATUS_UPDATE, statustext))
 
 		guess_text = read_text_file(guess_path)
-		self.validation(guess_text)
-
-	def validation(self, postprocessed_text):
-		statustext = "Validation"
-		print statustext
-		self.overlay.req_queue.put((overlay.Overlay.REQUEST_STATUS_UPDATE, statustext))
 
 		def split_text_in_message_lines(multiline_text):
 			text = multiline_text
@@ -208,6 +202,15 @@ class LogAction(threading.Thread):
 			#print lines
 
 			return lines
+
+		message_lines = split_text_in_message_lines(guess_text)
+
+		self.validation(message_lines)
+
+	def validation(self, message_lines):
+		statustext = "Validation"
+		print statustext
+		self.overlay.req_queue.put((overlay.Overlay.REQUEST_STATUS_UPDATE, statustext))
 
 		def check_for_pattern(line):
 			time_regex = "([0-9]|1[0-9]|2[0-3]):([0-5][0-9])"
@@ -226,8 +229,7 @@ class LogAction(threading.Thread):
 					print "Pattern \"{}\" matched for line: {}".format(name, line.encode("utf-8"))
 			print "Found {} pattern matching this line.".format(found)
 
-		lines = split_text_in_message_lines(postprocessed_text)
-		for line in lines:
+		for line in message_lines:
 			check_for_pattern(line)
 
 		validated = True
@@ -237,18 +239,20 @@ class LogAction(threading.Thread):
 			# else: request user intervention 
 			self.overlay.req_queue.put((overlay.Overlay.REQUEST_CORRECTION, "This is a dummy text. But correct it!!"))
 			self.overlay.wait_for_gui_continue_event.wait()
-			postprocessed_text = self.overlay.get_correction_text()
+			corrected_text = self.overlay.get_correction_text()
+			#splitting, rechecking...
 
 			validated = True
 
-		self.concatenate_logs(postprocessed_text)
+		self.concatenate_logs(message_lines)
 
-	def concatenate_logs(self, validated_text_block):
+	def concatenate_logs(self, validated_msg_lines):
 		statustext = "Concatenate logs"
 		print statustext
 		self.overlay.req_queue.put((overlay.Overlay.REQUEST_STATUS_UPDATE, statustext))
 
-		print validated_text_block.encode("utf-8")
+		for line in validated_msg_lines:
+			print line.encode("utf-8")
 
 	def run(self):
 		self.makeScreenshot()
