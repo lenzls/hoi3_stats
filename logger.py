@@ -216,14 +216,11 @@ class LogAction(threading.Thread):
 			year_regex = "(19(?:2[6-9]|4[0-8]))"
 			date_regex = "{}, {} {}, {}".format(time_regex, day_regex, month_regex, year_regex)
 
-			event_patterns = {
-							"NAVALBATTLEOVER_LOG" : "We (?P<RESULT>[\w ]*) the (?P<NAME>[\w ]*)."
-						}
 			found = 0
-			for name in event_patterns.keys():
-				event_pattern = event_patterns[name]
+			for name in LogAction.event_patterns.keys():
+				event_pattern = LogAction.event_patterns[name]
 				pattern = "{} {}".format(date_regex, event_pattern)
-				print "searching for pattern {} in {}".format(pattern, line.encode("utf-8"))
+				#print "searching for pattern {} in {}".format(pattern, line.encode("utf-8"))
 				if re.match(pattern, line):
 					found += 1
 					print "Pattern \"{}\" matched for line: {}".format(name, line.encode("utf-8"))
