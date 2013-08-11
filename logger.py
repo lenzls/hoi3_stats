@@ -31,6 +31,13 @@ class LogAction(threading.Thread):
 	provinces_list = []
 	event_patterns = {}
 
+
+	time_regex = "([0-9]|1[0-9]|2[0-3]):([0-5][0-9])"
+	day_regex = "([1-9]|1[0-9]|2[0-9]|3[0-1])"
+	month_regex = "(January|February|March|April|May|June|July|August|September|October|November|Decemeber)"
+	year_regex = "(19(?:2[6-9]|4[0-8]))"
+	date_regex = "{}, {} {}, {}".format(time_regex, day_regex, month_regex, year_regex)
+
 	@staticmethod
 	def generate_provinces_list(debug=False):
 		print "generating provinces list"
@@ -213,16 +220,10 @@ class LogAction(threading.Thread):
 		self.overlay.req_queue.put((overlay.Overlay.REQUEST_STATUS_UPDATE, statustext))
 
 		def check_for_pattern(line):
-			time_regex = "([0-9]|1[0-9]|2[0-3]):([0-5][0-9])"
-			day_regex = "([1-9]|1[0-9]|2[0-9]|3[0-1])"
-			month_regex = "(January|February|March|April|May|June|July|August|September|October|November|Decemeber)"
-			year_regex = "(19(?:2[6-9]|4[0-8]))"
-			date_regex = "{}, {} {}, {}".format(time_regex, day_regex, month_regex, year_regex)
-
 			found = 0
 			for name in LogAction.event_patterns.keys():
 				event_pattern = LogAction.event_patterns[name]
-				pattern = "{} {}".format(date_regex, event_pattern)
+				pattern = "{} {}".format(LogAction.date_regex, event_pattern)
 				#print "searching for pattern {} in {}".format(pattern, line.encode("utf-8"))
 				if re.match(pattern, line):
 					found += 1
