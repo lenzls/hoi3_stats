@@ -55,6 +55,8 @@ class StatLogger():
 		self.logcount = 0
 		self.running = True
 
+		LogAction.generate_provinces_list()
+
 		self.start()
 
 	def invoce_logging_action(self):

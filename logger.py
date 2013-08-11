@@ -6,6 +6,12 @@ from os.path import splitext
 from subprocess import check_call
 from PIL import ImageGrab 
 import threading
+import re
+import codecs
+
+class NotCorrectInitializedException(Exception):
+	pass
+
 def read_text_file(filepath, mode="r", enc="utf-8"):
     opened = codecs.open(filepath, mode, enc)
     content = opened.read()
@@ -17,10 +23,27 @@ class LogAction(threading.Thread):
 	SCREENSHOT_PATH = "data/screenshot.png"
 	GUESS_PATH_BASE = "./tmp_tesseract_file"
 	GUESS_PATH = GUESS_PATH_BASE + ".txt"
+	PROVINCE_NAMES_PATH = "C:\\Program Files (x86)\\Steam\\SteamApps\\common\\Hearts of Iron 3\\tfh\\mod\\hoi3_stats\\localisation\\province_names.csv"
 	LOG_POSITION = (861, 815)  # position of the game log in absolute screen coordinates
 	LOG_DIMENSIONS = (437, 139)  # dimensions of the game log
 
+	provinces_list = []
+
+	@staticmethod
+	def generate_provinces_list():
+		print "generating provinces list"
+		full_file_lines = read_text_file(LogAction.PROVINCE_NAMES_PATH).split("\n")
+		prov_regex = "(?P<generic_name>[A-Za-z0-9 ]*);(?P<english>[A-Za-z0-9 ]*);[A-Za-z0-9 ]*"
+		#print [line for line in full_file_lines[:10]]
+		LogAction.provinces_list = [re.match(prov_regex, line).group("english") for line in full_file_lines[:10] if not re.match(prov_regex, line) == None]
+
 	def __init__(self, overlay, **kwargs):
+		print len(LogAction.provinces_list)
+		if len(LogAction.provinces_list) == 0:
+			print "Please generate provinces list before logging"
+			raise NotCorrectInitializedException("Provinces list not generated")
+
+
 		threading.Thread.__init__(self, **kwargs)
 		self.overlay = overlay
 
