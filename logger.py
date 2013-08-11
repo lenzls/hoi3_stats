@@ -30,12 +30,16 @@ class LogAction(threading.Thread):
 	provinces_list = []
 
 	@staticmethod
-	def generate_provinces_list():
+	def generate_provinces_list(debug=False):
 		print "generating provinces list"
 		full_file_lines = read_text_file(LogAction.PROVINCE_NAMES_PATH).split("\n")
-		prov_regex = "(?P<generic_name>[A-Za-z0-9 ]*);(?P<english>[A-Za-z0-9 ]*);[A-Za-z0-9 ]*"
-		#print [line for line in full_file_lines[:10]]
-		LogAction.provinces_list = [re.match(prov_regex, line).group("english") for line in full_file_lines[:10] if not re.match(prov_regex, line) == None]
+		prov_regex = "(?P<generic_name>[^;]*);(?P<english>[^;]*);.*"
+		LogAction.provinces_list = [re.match(prov_regex, line).group("english") for line in full_file_lines if not re.match(prov_regex, line) == None]
+		if debug:
+			print "{} provinces found".format(len(LogAction.provinces_list))
+			print "Here are the first entries:"
+			for line in LogAction.provinces_list[:11]:
+				print "{} : {}".format(type(line), line.encode("utf-8"))
 
 	def __init__(self, overlay, **kwargs):
 		print len(LogAction.provinces_list)

@@ -55,7 +55,7 @@ class StatLogger():
 		self.logcount = 0
 		self.running = True
 
-		LogAction.generate_provinces_list()
+		LogAction.generate_provinces_list(debug=True)
 
 		self.start()
 
