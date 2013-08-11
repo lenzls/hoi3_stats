@@ -172,7 +172,7 @@ class LogAction(threading.Thread):
 		print statustext
 		self.overlay.req_queue.put((overlay.Overlay.REQUEST_STATUS_UPDATE, statustext))
 
-		print validated_text_block
+		print validated_text_block.encode("utf-8")
 
 	def run(self):
 		self.makeScreenshot()
