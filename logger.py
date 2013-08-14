@@ -23,13 +23,15 @@ class LogAction(threading.Thread):
 	SCREENSHOT_PATH = "data/screenshot.png"
 	GUESS_PATH_BASE = "./tmp_tesseract_file"
 	GUESS_PATH = GUESS_PATH_BASE + ".txt"
-	PROVINCE_NAMES_PATH = "C:\\Program Files (x86)\\Steam\\SteamApps\\common\\Hearts of Iron 3\\tfh\\mod\\hoi3_stats\\localisation\\province_names.csv"
+	PROVINCE_NAMES_PATH = "C:\\Program Files (x86)\\Steam\\SteamApps\\common\\Hearts of Iron 3\\localisation\\province_names.csv"
 	EVENT_PATTERNS_PATH = "C:\\Program Files (x86)\\Steam\\SteamApps\\common\\Hearts of Iron 3\\tfh\\mod\\hoi3_stats\\localisation\\unit_messages.csv"
+	COUNTRIES_PATH = "C:\\Program Files (x86)\\Steam\\SteamApps\\common\\Hearts of Iron 3\\localisation\\countries.csv"
 	LOG_POSITION = (861, 815)  # position of the game log in absolute screen coordinates
 	LOG_DIMENSIONS = (437, 139)  # dimensions of the game log
 
 	provinces_list = []
 	event_patterns = {}
+	countries_list = []
 
 
 	time_regex = "([0-9]|1[0-9]|2[0-3]):([0-5][0-9])"
@@ -41,13 +43,27 @@ class LogAction(threading.Thread):
 	@staticmethod
 	def generate_provinces_list(debug=False):
 		print "generating provinces list"
-		full_file_lines = read_text_file(LogAction.PROVINCE_NAMES_PATH).split("\n")
+		full_file_lines = read_text_file(LogAction.PROVINCE_NAMES_PATH, enc="latin1").split("\n")
 		prov_regex = "(?P<generic_name>[^;]*);(?P<english>[^;]*);.*"
 		LogAction.provinces_list = [re.match(prov_regex, line).group("english") for line in full_file_lines if not re.match(prov_regex, line) == None]
 		if debug:
 			print "{} provinces found".format(len(LogAction.provinces_list))
 			print "Here are the first entries:"
 			for line in LogAction.provinces_list[:11]:
+				print "{} : {}".format(type(line), line.encode("utf-8"))
+
+
+	@staticmethod
+	def generate_countries_list(debug=False):
+		print "generating countries list"
+		full_file_lines = read_text_file(LogAction.COUNTRIES_PATH, enc="latin1").split("\n")
+		regex = "(?P<generic_name>[^;]*);(?P<english>[^;]*);.*"
+		LogAction.countries_list = [re.match(regex, line).group("english") for line in full_file_lines if not re.match(regex, line) == None]
+		LogAction.countries_list = LogAction.countries_list[1:]  # first entry is empty in file
+		if debug:
+			print "{} countries found".format(len(LogAction.countries_list))
+			print "Here are the first entries:"
+			for line in LogAction.countries_list[:11]:
 				print "{} : {}".format(type(line), line.encode("utf-8"))
 
 	@staticmethod
@@ -98,7 +114,99 @@ class LogAction(threading.Thread):
 				"ATTACKER_ADJ" : "(?P<ATTACKER_ADJ>[\w ]*)",
 				"DAMAGE_SHORT" : "(?P<DAMAGE_SHORT>[\w ]*)",
 				"SIZE" : "(?P<SIZE>[\w ]*)",
-				"SUNK" : "(?P<SUNK>[\w ]*)"
+				"SUNK" : "(?P<SUNK>[\w ]*)",
+				"foreign_minister" : "(?P<foreign_minister>[\w ]*)",
+				"AGRESSOR" : "(?P<AGRESSOR>[\w ]*)",
+				"WARGOAL" : "(?P<WARGOAL>[\w ]*)",
+				"VALUE" : "(?P<VALUE>[\w ]*)",
+				"VICTIM" : "(?P<VICTIM>[\w ]*)",
+				"GOVERNMENT" : "(?P<GOVERNMENT>[\w ]*)",
+				"DAILY" : "(?P<DAILY>[\w ]*)",
+				"LIMIT" : "(?P<LIMIT>[\w ]*)",
+				"DATE" : "(?P<DATE>[\w ]*)",
+				"CON" : "(?P<CON>[\w ]*)",
+				"DIRECTION" : "(?P<DIRECTION>[\w ]*)",
+				"FACTION" : "(?P<FACTION>[\w ]*)",
+				"WHO" : "(?P<WHO>[\w ]*)",
+				"TO" : "(?P<TO>[\w ]*)",
+				"AMOUNT" : "(?P<AMOUNT>[\w ]*)",
+				"minister_of_intelligence" : "(?P<minister_of_intelligence>[\w ]*)",
+				"PLANES" : "(?P<PLANES>[\w ]*)",
+				"TOTAL" : "(?P<TOTAL>[\w ]*)",
+				"RECIPIENT" : "(?P<RECIPIENT>[\w ]*)",
+				"STAGE" : "(?P<STAGE>[\w ]*)",
+				"COUNT" : "(?P<COUNT>[\w ]*)",
+				"VAL" : "(?P<VAL>[\w ]*)",
+				"WHICH" : "(?P<WHICH>[\w ]*)",
+				"LIMIT_PERC" : "(?P<LIMIT_PERC>[\w ]*)",
+				"EFFECT" : "(?P<EFFECT>[\w ]*)",
+				"CURRENT" : "(?P<CURRENT>[\w ]*)",
+				"STATE" : "(?P<STATE>[\w ]*)",
+				"CURR_PERC" : "(?P<CURR_PERC>[\w ]*)",
+				"CAPITAL" : "(?P<CAPITAL>[\w ]*)",
+				"BOSS" : "(?P<BOSS>[\w ]*)",
+				"WHERE" : "(?P<WHERE>[\w ]*)",
+				"RESOURCES" : "(?P<RESOURCES>[\w ]*)",
+				"DESC" : "(?P<DESC>[\w ]*)",
+				"FROM" : "(?P<FROM>[\w ]*)",
+				"GOAL" : "(?P<GOAL>[\w ]*)",
+				"MAX" : "(?P<MAX>[\w ]*)",
+				"DAYS" : "(?P<DAYS>[\w ]*)",
+				"EVENT" : "(?P<EVENT>[\w ]*)",
+				"OLD_NAME" : "(?P<OLD_NAME>[\w ]*)",
+				"PRIDE_SUNK" : "(?P<PRIDE_SUNK>[\w ]*)",
+				"PRIDE_SINKER" : "(?P<PRIDE_SINKER>[\w ]*)",
+				"DISSENT" : "(?P<DISSENT>[\w ]*)",
+				"MONTHS" : "(?P<MONTHS>[\w ]*)",
+				"LAND_WINNER_LOSSES" : "(?P<LAND_WINNER_LOSSES>[\w ]*)",
+				"LEADERSHIP" : "(?P<LEADERSHIP>[\w ]*)",
+				"FROMCOUNTRY_ADJ" : "(?P<FROMCOUNTRY_ADJ>[\w ]*)",
+				"COUNTRYNAME" : "(?P<COUNTRYNAME>[\w ]*)",
+				"THEIR" : "(?P<THEIR>[\w ]*)",
+				"COST" : "(?P<COST>[\w ]*)",
+				"TECH" : "(?P<TECH>[\w ]*)",
+				"EXPERIENCE" : "(?P<EXPERIENCE>[\w ]*)",
+				"EXP" : "(?P<EXP>[\w ]*)",
+				"EACH" : "(?P<EACH>[\w ]*)",
+				"OUR" : "(?P<OUR>[\w ]*)",
+				"COUNTRY_ADJ" : "(?P<COUNTRY_ADJ>[\w ]*)",
+				"LAND_LOSER_LOSSES" : "(?P<LAND_LOSER_LOSSES>[\w ]*)",
+				"EFFECTS" : "(?P<EFFECTS>[\w ]*)",
+				"PERC" : "(?P<PERC>[\w ]*)",
+				"STATUS" : "(?P<STATUS>[\w ]*)",
+				"RATIO" : "(?P<RATIO>[\w ]*)",
+				"ENEMY" : "(?P<ENEMY>[\w ]*)",
+				"DAM" : "(?P<DAM>[\w ]*)",
+				"OP" : "(?P<OP>[\w ]*)",
+				"NUMBER" : "(?P<NUMBER>[\w ]*)",
+				"TRAIT" : "(?P<TRAIT>[\w ]*)",
+				"MISSION" : "(?P<MISSION>[\w ]*)",
+				"PROG" : "(?P<PROG>[\w ]*)",
+				"SECOND" : "(?P<SECOND>[\w ]*)",
+				"USER" : "(?P<USER>[\w ]*)",
+				"X" : "(?P<X>[\w ]*)",
+				"DIE" : "(?P<DIE>[\w ]*)",
+				"Y" : "(?P<Y>[\w ]*)",
+				"DIST" : "(?P<DIST>[\w ]*)",
+				"IC" : "(?P<IC>[\w ]*)",
+				"AVG" : "(?P<AVG>[\w ]*)",
+				"CHANNEL" : "(?P<CHANNEL>[\w ]*)",
+				"FIRST" : "(?P<FIRST>[\w ]*)",
+				"COUNTRIES" : "(?P<COUNTRIES>[\w ]*)",
+				"ACTOR" : "(?P<ACTOR>[\w ]*)",
+				"LEVEL" : "(?P<LEVEL>[\w ]*)",
+				"PROVINCE" : "(?P<PROVINCE>[\w ]*)",
+				"TITLE" : "(?P<TITLE>[\w ]*)",
+				"CB" : "(?P<CB>[\w ]*)",
+				"RESPONSIBLE" : "(?P<RESPONSIBLE>[\w ]*)",
+				"TOT" : "(?P<TOT>[\w ]*)",
+				"TARGET_ADJ" : "(?P<TARGET_ADJ>[\w ]*)",
+				"PLAYER" : "(?P<PLAYER>[\w ]*)",
+				"FROMCOUNTRY" : "(?P<FROMCOUNTRY>[\w ]*)",
+				"PROVINCENAME" : "(?P<PROVINCENAME>[\w ]*)",
+				"TIME" : "(?P<TIME>[\w ]*)",
+				"WIDTH" : "(?P<WIDTH>[\w ]*)",
+				"SKILL" : "(?P<SKILL>[\w ]*)"
 			}
 			for var in variables.keys():
 				regex = variables[var]

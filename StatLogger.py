@@ -58,6 +58,7 @@ class StatLogger():
 
 		LogAction.generate_provinces_list(debug=True)
 		LogAction.generate_event_pattern_dict(debug=True)
+		LogAction.generate_countries_list(debug=True)
 
 		self.start()
 
