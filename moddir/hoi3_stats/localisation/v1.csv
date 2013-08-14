@@ -13,7 +13,7 @@ WEALIGNSTOP_3;Aligning;de nous aligner;Ausrichtung;;alinearnos;;;;;;;;;x
 WEALIGNSTOP_4;ourselves to;sur;an;;con;;;;;;;;;x
 WEALIGNSTOP_5;$RECIPIENT$;$RECIPIENT$;$RECIPIENT$ gestoppt;;$RECIPIENT$.;;;;;;;;;x
 WEALIGNSTOP_6;*;*;*;;*;;;;;;;;;x,
-WEALIGNSTOP_LOG;We stopped aligning towards $RECIPIENT$;Nous avons arrêté de nous aligner sur $RECIPIENT$;Wir haben unsere Ausrichtung an $RECIPIENT$ gestoppt;;Hemos dejado de alinearnos con $RECIPIENT$.;;;;;;;;;x
+WEALIGNSTOP_LOG;WEALIGNSTOP_LOG > RECIPIENT=$RECIPIENT$ + foreign_minister=$foreign_minister$ + MONARCHTITLE=$MONARCHTITLE$ + minister_of_intelligence=$minister_of_intelligence$ + ACTOR=$ACTOR$ + OFFICERS=$OFFICERS$ + DIVISIONS=$DIVISIONS$ + NEED=$NEED$ + DAILY=$DAILY$ +  We stopped aligning towards $RECIPIENT$;Nous avons arrêté de nous aligner sur $RECIPIENT$;Wir haben unsere Ausrichtung an $RECIPIENT$ gestoppt;;Hemos dejado de alinearnos con $RECIPIENT$.;;;;;;;;;x
 WEALIGNSTOP_BTN1;OK;OK;OK;OK;Aceptar;OK;Rendben;OK;;;;;;x,
 WEALIGNSTOP_BTN2;OK;OK;OK;OK;Aceptar;OK;Rendben;OK;;;;;;x,
 WEALIGNSTOP_BTN3;Goto;Aller à;Gehe zu;IdŸ do;Ir allí;Andare;Ugrás;Pøejít na;;;;;;x,
@@ -26,7 +26,7 @@ OTHERALIGNSTOP_3;Aligning;de s’aligner;die Ausrichtung;;alinearse;;;;;;;;;x
 OTHERALIGNSTOP_4;towards;sur;an;;con;;;;;;;;;x
 OTHERALIGNSTOP_5;$RECIPIENT$;$RECIPIENT$;$RECIPIENT$;;$RECIPIENT$.;;;;;;;;;x
 OTHERALIGNSTOP_6;*;*;*;;*;;;;;;;;;x,
-OTHERALIGNSTOP_LOG;$ACTOR$ stopped aligning towards $RECIPIENT$.;$ACTOR$ a arrêté de s’aligner sur $RECIPIENT$.;$ACTOR$ stoppte die Ausrichtung an $RECIPIENT$.;;$ACTOR$ ha dejado de alinearse con $RECIPIENT$.;;;;;;;;;x
+OTHERALIGNSTOP_LOG;OTHERALIGNSTOP_LOG > RECIPIENT=$RECIPIENT$ + foreign_minister=$foreign_minister$ + MONARCHTITLE=$MONARCHTITLE$ + minister_of_intelligence=$minister_of_intelligence$ + ACTOR=$ACTOR$ + OFFICERS=$OFFICERS$ + DIVISIONS=$DIVISIONS$ + NEED=$NEED$ + DAILY=$DAILY$ +  $ACTOR$ stopped aligning towards $RECIPIENT$.;$ACTOR$ a arrêté de s’aligner sur $RECIPIENT$.;$ACTOR$ stoppte die Ausrichtung an $RECIPIENT$.;;$ACTOR$ ha dejado de alinearse con $RECIPIENT$.;;;;;;;;;x
 OTHERALIGNSTOP_BTN1;OK;OK;OK;OK;Aceptar;OK;Rendben;OK;;;;;;x,
 OTHERALIGNSTOP_BTN2;OK;OK;OK;OK;Aceptar;OK;Rendben;OK;;;;;;x,
 OTHERALIGNSTOP_BTN3;Goto;Aller à;Gehe zu;IdŸ do;Ir allí;Andare;Ugrás;Pøejít na;;;;;;x,
@@ -39,7 +39,7 @@ THEYALIGNSTOP_3;$ACTOR$;$ACTOR$;$ACTOR$;;$ACTOR$;;;;;;;;;x,
 THEYALIGNSTOP_4;is no longer attempting to align itself towards our faction.;n’essaie plus de s’aligner sur notre faction.;versuchen nicht mehr, sich an unserer Fraktion auszurichten.;;ya no intenta alinearse con nuestra facción.;;;;;;;;;x
 THEYALIGNSTOP_5;*;*;*;;*;;;;;;;;;x,
 THEYALIGNSTOP_6;*;*;*;;*;;;;;;;;;x,
-THEYALIGNSTOP_LOG;$ACTOR$ stopped aligning towards our faction.;$ACTOR$ a arrêté de s’aligner sur notre faction.;$ACTOR$ stoppte die Ausrichtung an unserer Fraktion.;;$ACTOR$ ha dejado de alinearse con nuestra facción.;;;;;;;;;x
+THEYALIGNSTOP_LOG;THEYALIGNSTOP_LOG > RECIPIENT=$RECIPIENT$ + foreign_minister=$foreign_minister$ + MONARCHTITLE=$MONARCHTITLE$ + minister_of_intelligence=$minister_of_intelligence$ + ACTOR=$ACTOR$ + OFFICERS=$OFFICERS$ + DIVISIONS=$DIVISIONS$ + NEED=$NEED$ + DAILY=$DAILY$ +  $ACTOR$ stopped aligning towards our faction.;$ACTOR$ a arrêté de s’aligner sur notre faction.;$ACTOR$ stoppte die Ausrichtung an unserer Fraktion.;;$ACTOR$ ha dejado de alinearse con nuestra facción.;;;;;;;;;x
 THEYALIGNSTOP_BTN1;OK;OK;OK;OK;Aceptar;OK;Rendben;OK;;;;;;x
 THEYALIGNSTOP_BTN2;OK;OK;OK;OK;Aceptar;OK;Rendben;OK;;;;;;x
 THEYALIGNSTOP_BTN3;Goto;Aller à;Gehe zu;IdŸ do;Ir allí;Andare;Ugrás;Pøejít na;;;;;;x
@@ -72,7 +72,7 @@ ANNEX_3;$ACTOR$ annexed $RECIPIENT$;$ACTOR$ a annexé $RECIPIENT$;$ACTOR$ annekti
 ANNEX_4;which now is part of their country.;qui fait désormais partie de son pays.;das nun Teil ihrer Nation ist;;que ahora forma parte de su país.;;;;;;;;;x
 ANNEX_5;*;*;*;;*;;;;;;;;;x
 ANNEX_6;*;*;*;;*;;;;;;;;;x
-ANNEX_LOG;$ACTOR$ annexed $RECIPIENT$.;$ACTOR$ a annexé $RECIPIENT$.;$ACTOR$ annektierte $RECIPIENT$.;;$ACTOR$ se ha anexionado $RECIPIENT$.;;;;;;;;;x
+ANNEX_LOG;ANNEX_LOG > RECIPIENT=$RECIPIENT$ + foreign_minister=$foreign_minister$ + MONARCHTITLE=$MONARCHTITLE$ + minister_of_intelligence=$minister_of_intelligence$ + ACTOR=$ACTOR$ + OFFICERS=$OFFICERS$ + DIVISIONS=$DIVISIONS$ + NEED=$NEED$ + DAILY=$DAILY$ +  $ACTOR$ annexed $RECIPIENT$.;$ACTOR$ a annexé $RECIPIENT$.;$ACTOR$ annektierte $RECIPIENT$.;;$ACTOR$ se ha anexionado $RECIPIENT$.;;;;;;;;;x
 ANNEX_BTN1;OK;OK;OK;;Aceptar;;;;;;;;;x
 ANNEX_BTN2;OK;OK;OK;;Aceptar;;;;;;;;;x
 ANNEX_BTN3;Goto;Aller à;Gehe zu;;Ir allí;;;;;;;;;x

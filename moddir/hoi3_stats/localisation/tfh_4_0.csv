@@ -45,7 +45,7 @@ LENDDECLINE_3;§Y$RECIPIENT$§W;§Y$RECIPIENT$§W;§Y$RECIPIENT$§W;;§Y$RECIPIENT$§W;;
 LENDDECLINE_4;have refused;;lehnte;;;;;;;;;;;x
 LENDDECLINE_5;our request for lend-lease aid.;;unsere Anfrage auf industrielle Unterstützung ab.;;;;;;;;;;;x
 LENDDECLINE_6;*;*;*;;*;;;;;;;;;x,,,
-LENDDECLINE_LOG;$RECIPIENT$ refused our request for lend-lease.;;$RECIPIENT$ lehnten unsere Anfrage nach industrieller Unterstützung ab.;;;;;;;;;;;x
+LENDDECLINE_LOG;LENDDECLINE_LOG > COUNTRY=$COUNTRY$ + FACTION=$FACTION$ + LEVEL=$LEVEL$ + LIMIT=$LIMIT$ + VAL=$VAL$ + ACTOR=$ACTOR$ + MAX=$MAX$ + FROM=$FROM$ + TO=$TO$ + COUNTRIES=$COUNTRIES$ + foreign_minister=$foreign_minister$ + MONARCHTITLE=$MONARCHTITLE$ + RECIPIENT=$RECIPIENT$ +  $RECIPIENT$ refused our request for lend-lease.;;$RECIPIENT$ lehnten unsere Anfrage nach industrieller Unterstützung ab.;;;;;;;;;;;x
 LENDDECLINE_BTN1;OK;OK;OK;OK;Aceptar;OK;Rendben;OK;;;;;;x
 LENDDECLINE_BTN2;OK;OK;OK;OK;Aceptar;OK;Rendben;OK;;;;;;x
 LENDDECLINE_BTN3;Go to;Aller à;Gehe zu;IdŸ do;Ir allí;Andare;Ugrás;Pøejít na;;;;;;x
@@ -58,7 +58,7 @@ LENDACCEPT_3;§Y$RECIPIENT$§W;§Y$RECIPIENT$§W;§Y$RECIPIENT$§W;;§Y$RECIPIENT$§W;;;
 LENDACCEPT_4;have accepted;;hat zugestimmt;;;;;;;;;;;x
 LENDACCEPT_5;our request for lend-lease aid.;;uns industrielle Unterstützung zu gewähren.;;;;;;;;;;;x
 LENDACCEPT_6;*;*;*;;*;;;;;;;;;x,,,
-LENDACCEPT_LOG;$RECIPIENT$ accepted our request for lend-lease.;;$RECIPIENT$ erklärten sich bereit uns industriell zu unterstützen.;;;;;;;;;;;x
+LENDACCEPT_LOG;LENDACCEPT_LOG > COUNTRY=$COUNTRY$ + FACTION=$FACTION$ + LEVEL=$LEVEL$ + LIMIT=$LIMIT$ + VAL=$VAL$ + ACTOR=$ACTOR$ + MAX=$MAX$ + FROM=$FROM$ + TO=$TO$ + COUNTRIES=$COUNTRIES$ + foreign_minister=$foreign_minister$ + MONARCHTITLE=$MONARCHTITLE$ + RECIPIENT=$RECIPIENT$ +  $RECIPIENT$ accepted our request for lend-lease.;;$RECIPIENT$ erklärten sich bereit uns industriell zu unterstützen.;;;;;;;;;;;x
 LENDACCEPT_BTN1;OK;OK;OK;OK;Aceptar;OK;Rendben;OK;;;;;;x
 LENDACCEPT_BTN2;OK;OK;OK;OK;Aceptar;OK;Rendben;OK;;;;;;x
 LENDACCEPT_BTN3;Go to;Aller à;Gehe zu;IdŸ do;Ir allí;Andare;Ugrás;Pøejít na;;;;;;x
@@ -71,7 +71,7 @@ LENDREVOKE_3;§Y$RECIPIENT$§W;§Y$RECIPIENT$§W;§Y$RECIPIENT$§W;;§Y$RECIPIENT$§W;;;
 LENDREVOKE_4;have revoked;;beendete;;;;;;;;;;;x
 LENDREVOKE_5;our lend-lease aid.;;die industrielle Unterstützung für uns.;;;;;;;;;;;x
 LENDREVOKE_6;We are now on our own.;;Wir sind nun wieder auf uns allein gestellt.;;;;;;;;;;;x
-LENDREVOKE_LOG;$RECIPIENT$ accepted our request for lend-lease.;;$RECIPIENT$ erklärten sich bereit uns industriell zu unterstützen.;;;;;;;;;;;x
+LENDREVOKE_LOG;LENDREVOKE_LOG > COUNTRY=$COUNTRY$ + FACTION=$FACTION$ + LEVEL=$LEVEL$ + LIMIT=$LIMIT$ + VAL=$VAL$ + ACTOR=$ACTOR$ + MAX=$MAX$ + FROM=$FROM$ + TO=$TO$ + COUNTRIES=$COUNTRIES$ + foreign_minister=$foreign_minister$ + MONARCHTITLE=$MONARCHTITLE$ + RECIPIENT=$RECIPIENT$ +  $RECIPIENT$ accepted our request for lend-lease.;;$RECIPIENT$ erklärten sich bereit uns industriell zu unterstützen.;;;;;;;;;;;x
 LENDREVOKE_BTN1;OK;OK;OK;OK;Aceptar;OK;Rendben;OK;;;;;;x
 LENDREVOKE_BTN2;OK;OK;OK;OK;Aceptar;OK;Rendben;OK;;;;;;x
 LENDREVOKE_BTN3;Go to;Aller à;Gehe zu;IdŸ do;Ir allí;Andare;Ugrás;Pøejít na;;;;;;x

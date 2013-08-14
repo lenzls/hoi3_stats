@@ -33,7 +33,7 @@ DIPLOEXPIRE_3;informs us that our efforts to;nous informe que nos tentatives de;
 DIPLOEXPIRE_4;$ACTION$;$ACTION$;$ACTION$;;$ACTION$;;;;;;;;;x
 DIPLOEXPIRE_5;has expired.;ont expiré.;abgelaufen sind.;*;ha expirado;*;*;;;;;;;x,,,,,,
 DIPLOEXPIRE_6;*;*;*;*;*;*;*;;;;;;;x,,,,,,
-DIPLOEXPIRE_LOG;We stopped our efforts to $ACTION$.;Nous avons cessé toute tentative de $ACTION$.;Wir haben unsere Bemühungen zu $ACTION$ eingestellt.;;Hemos cesado en nuestros esfuerzos por $ACTION$.;;;;;;;;;x
+DIPLOEXPIRE_LOG;DIPLOEXPIRE_LOG > VAL=$VAL$ + LIST=$LIST$ + DATE=$DATE$ + CURRENT=$CURRENT$ + NUM=$NUM$ + HOURS=$HOURS$ + foreign_minister=$foreign_minister$ + MONARCHTITLE=$MONARCHTITLE$ + RECIPIENT=$RECIPIENT$ + ACTION=$ACTION$ + FACTION=$FACTION$ + chief_of_staff=$chief_of_staff$ + TYPE=$TYPE$ + DAYS=$DAYS$ + NAME=$NAME$ + PROV=$PROV$ + TARGET=$TARGET$ +  We stopped our efforts to $ACTION$.;Nous avons cessé toute tentative de $ACTION$.;Wir haben unsere Bemühungen zu $ACTION$ eingestellt.;;Hemos cesado en nuestros esfuerzos por $ACTION$.;;;;;;;;;x
 DIPLOEXPIRE_BTN1;OK;OK;OK;OK;Aceptar;OK;Rendben;OK;;;;;;x,,,,,,
 DIPLOEXPIRE_BTN2;OK;OK;OK;OK;Aceptar;OK;Rendben;OK;;;;;;x,,,,,,
 DIPLOEXPIRE_BTN3;Go to;Go to;Gehe zu;IdŸ do;Ir a;Andare;Menj ide:;Pøejít na;;;;;;x
@@ -63,7 +63,7 @@ UNITARRIVED_LAND_3;$NAME$;$NAME$;$NAME$;;$NAME$;;;;;;;;;x
 UNITARRIVED_LAND_4;has safely arrived in;est bien arrivé(e) en;ist sicher eingetroffen in;;ha llegado a;;;;;;;;;x
 UNITARRIVED_LAND_5;$PROV$;$PROV$;$PROV$;;$PROV$;;;;;;;;;x
 UNITARRIVED_LAND_6;They are awaiting futher orders;Attend les ordres;Sie erwarten weitere Befehle.;;Está esperando nuevas órdenes;;;;;;;;;x
-UNITARRIVED_LAND_LOG;$NAME$ arrived in $PROV$;$NAME$ est arrivé(e) en $PROV$;$NAME$ ist in $PROV$ eingetroffen;;$NAME$ ha llegado a $PROV$;;;;;;;;;x
+UNITARRIVED_LAND_LOG;UNITARRIVED_LAND_LOG > VAL=$VAL$ + LIST=$LIST$ + DATE=$DATE$ + CURRENT=$CURRENT$ + NUM=$NUM$ + HOURS=$HOURS$ + foreign_minister=$foreign_minister$ + MONARCHTITLE=$MONARCHTITLE$ + RECIPIENT=$RECIPIENT$ + ACTION=$ACTION$ + FACTION=$FACTION$ + chief_of_staff=$chief_of_staff$ + TYPE=$TYPE$ + DAYS=$DAYS$ + NAME=$NAME$ + PROV=$PROV$ + TARGET=$TARGET$ +  $NAME$ arrived in $PROV$;$NAME$ est arrivé(e) en $PROV$;$NAME$ ist in $PROV$ eingetroffen;;$NAME$ ha llegado a $PROV$;;;;;;;;;x
 UNITARRIVED_LAND_BTN1;OK;OK;OK;;Aceptar;;;;;;;;;x
 UNITARRIVED_LAND_BTN2;OK;OK;OK;;Aceptar;;;;;;;;;x
 UNITARRIVED_LAND_BTN3;GOTO;ALLER A;GEHE ZU;;Ir a;;;;;;;;;x
@@ -76,7 +76,7 @@ UNITARRIVED_NAVAL_3;$NAME$;$NAME$;$NAME$;;$NAME$;;;;;;;;;x
 UNITARRIVED_NAVAL_4;has safely arrived in;est bien arrivé(e) en;ist sicher eingetroffen in;;ha llegado a;;;;;;;;;x
 UNITARRIVED_NAVAL_5;$PROV$;$PROV$;$PROV$;;$PROV$;;;;;;;;;x
 UNITARRIVED_NAVAL_6;They are awaiting futher orders;Attend les ordres;Sie erwarten weitere Befehle.;;Está esperando nuevas órdenes;;;;;;;;;x
-UNITARRIVED_NAVAL_LOG;$NAME$ arrived in $PROV$;$NAME$ est arrivé(e) en $PROV$;$NAME$ ist in $PROV$ eingetroffen;;$NAME$ ha llegado a $PROV$;;;;;;;;;x
+UNITARRIVED_NAVAL_LOG;UNITARRIVED_NAVAL_LOG > VAL=$VAL$ + LIST=$LIST$ + DATE=$DATE$ + CURRENT=$CURRENT$ + NUM=$NUM$ + HOURS=$HOURS$ + foreign_minister=$foreign_minister$ + MONARCHTITLE=$MONARCHTITLE$ + RECIPIENT=$RECIPIENT$ + ACTION=$ACTION$ + FACTION=$FACTION$ + chief_of_staff=$chief_of_staff$ + TYPE=$TYPE$ + DAYS=$DAYS$ + NAME=$NAME$ + PROV=$PROV$ + TARGET=$TARGET$ +  $NAME$ arrived in $PROV$;$NAME$ est arrivé(e) en $PROV$;$NAME$ ist in $PROV$ eingetroffen;;$NAME$ ha llegado a $PROV$;;;;;;;;;x
 UNITARRIVED_NAVAL_BTN1;OK;OK;OK;;Aceptar;;;;;;;;;x
 UNITARRIVED_NAVAL_BTN2;OK;OK;OK;;Aceptar;;;;;;;;;x
 UNITARRIVED_NAVAL_BTN3;GOTO;ALLER A;GEHE ZU;;Ir a;;;;;;;;;x
@@ -89,7 +89,7 @@ UNITARRIVED_AIR_3;$NAME$;$NAME$;$NAME$;;$NAME$;;;;;;;;;x
 UNITARRIVED_AIR_4;has safely arrived in;est bien arrivé(e) en;ist sicher eingetroffen in;;ha llegado a;;;;;;;;;x
 UNITARRIVED_AIR_5;$PROV$;$PROV$;$PROV$;;$PROV$;;;;;;;;;x
 UNITARRIVED_AIR_6;They are awaiting futher orders;Attend les ordres;Sie erwarten weitere Befehle.;;Está esperando nuevas órdenes;;;;;;;;;x
-UNITARRIVED_AIR_LOG;$NAME$ arrived in $PROV$;$NAME$ est arrivé(e) en $PROV$;$NAME$ ist in $PROV$ eingetroffen;;$NAME$ ha llegado a $PROV$;;;;;;;;;x
+UNITARRIVED_AIR_LOG;UNITARRIVED_AIR_LOG > VAL=$VAL$ + LIST=$LIST$ + DATE=$DATE$ + CURRENT=$CURRENT$ + NUM=$NUM$ + HOURS=$HOURS$ + foreign_minister=$foreign_minister$ + MONARCHTITLE=$MONARCHTITLE$ + RECIPIENT=$RECIPIENT$ + ACTION=$ACTION$ + FACTION=$FACTION$ + chief_of_staff=$chief_of_staff$ + TYPE=$TYPE$ + DAYS=$DAYS$ + NAME=$NAME$ + PROV=$PROV$ + TARGET=$TARGET$ +  $NAME$ arrived in $PROV$;$NAME$ est arrivé(e) en $PROV$;$NAME$ ist in $PROV$ eingetroffen;;$NAME$ ha llegado a $PROV$;;;;;;;;;x
 UNITARRIVED_AIR_BTN1;OK;OK;OK;;Aceptar;;;;;;;;;x
 UNITARRIVED_AIR_BTN2;OK;OK;OK;;Aceptar;;;;;;;;;x
 UNITARRIVED_AIR_BTN3;GOTO;ALLER A;GEHE ZU;;Ir a;;;;;;;;;x
